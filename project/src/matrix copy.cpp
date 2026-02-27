@@ -1,9 +1,7 @@
 #include "matrix.hpp"
 #include <stdexcept>
 #include <iostream>
-#ifdef _OPENMP
 #include <omp.h>
-#endif
 
 Matrix::Matrix(int rows, int cols)
     : rows(rows), cols(cols), data(rows * cols, 0.0)
@@ -48,6 +46,7 @@ Matrix Matrix::operator+(const Matrix &other) const
         throw std::invalid_argument("Matrix dimensions must match for addition");
 
     Matrix result(rows, cols);
+    #pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] + other.data[k];
     }
@@ -61,6 +60,7 @@ Matrix Matrix::operator-(const Matrix &other) const
         throw std::invalid_argument("Matrix dimensions must match for substraction");
 
     Matrix result(rows, cols);
+    #pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] - other.data[k];
     }
@@ -75,28 +75,39 @@ Matrix Matrix::operator*(const Matrix &other) const
 
     int newcols = other.cols;
     Matrix result(rows, newcols);
-    int block = 64;
-
-    // Compute with blocks corresponding to cache size to improve performance
+    int block = 32;
+    #pragma omp parallel
+    {
+        #pragma omp single
+        std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
+    }
+    #pragma omp parallel for collapse(2) schedule(static)
     for (int ii = 0; ii < rows; ii += block){
-        int i_end = std::min(ii + block, rows);
-        for (int kk = 0; kk < cols; kk += block){
-            int k_end = std::min(kk + block, cols);
-            for (int jj = 0; jj < other.cols; jj += block){
-                int j_end = std::min(jj + block, other.cols);
-                for (int i = ii; i < i_end; ++i){
+        int iimax = std::min(ii + block, rows);
+        for (int jj = 0; jj < other.cols; jj += block)
+        {
+            int jjmax = std::min(jj + block, other.cols);
+            for (int kk = 0; kk < cols; kk += block)
+            {   
+                int kkmax = std::min(kk + block, cols);
+
+                for (int i = ii; i < iimax; ++i)
+                {
                     double *result_row = &result.data[i*other.cols];
-                    const double *data_row = &data[i*cols];
-                    for (int k = kk; k < k_end; ++k) {
-                        double a = data_row[k];
-                        const double *other_row = &other.data[k*other.cols];
-                        for (int j = jj; j < j_end; ++j)
-                            result_row[j] += a * other_row[j];
-                        }
+                    const double *Arow = &data[i*cols];
+
+                    for (int k = kk; k < kkmax; ++k)
+                    {
+                        double a = Arow[k];
+                        const double *Brow = &other.data[k*other.cols];
+
+                        for (int j = jj; j < jjmax; ++j)
+                            result_row[j] += a * Brow[j];
                     }
-                }   
+                }
             }
         }
+    }
     return result;
 }
 

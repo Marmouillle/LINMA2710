@@ -15,7 +15,7 @@ double compute_pi_serial(long num_steps)
 double compute_pi_parallel(long num_steps)
 {
     double sum = 0.0;
-
+    #pragma omp parallel for reduction(+:sum)
     // TODO
 }
 

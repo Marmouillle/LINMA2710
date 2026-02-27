@@ -1,6 +1,7 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
+#include <chrono>
 
 #include "matrix.hpp"
 
@@ -75,6 +76,7 @@ void testScalarAndSquareMultiplication()
     a.set(1, 0, 3); a.set(1, 1, 4);
 
     Matrix scalarMul = a * 2;
+
     assert(approxEqual(scalarMul.get(0, 0), 2));
     assert(approxEqual(scalarMul.get(0, 1), 4));
     assert(approxEqual(scalarMul.get(1, 0), 6));
@@ -168,6 +170,21 @@ void testSubMul()
     std::cout << "testSubMul passed." << std::endl;
 }
 
+void testBigMultiplication()
+{
+    int size = 5000; 
+    Matrix A(size, size);
+    Matrix B(size, size);
+    A.fill(1.0);
+    B.fill(2.0);
+
+    Matrix C = A * B;
+    for (int i = 0; i < C.numRows(); ++i)
+        for (int j = 0; j < C.numCols(); ++j)
+            assert(approxEqual(C.get(i, j), 2.0 * size));
+
+    std::cout << "testBigMultiplication passed." << std::endl;
+}
 int main()
 {
     testConstructorsAndAccessors();
@@ -177,7 +194,16 @@ int main()
     testTranspose();
     testApply();
     testSubMul();
-
+    
+    auto start_time
+        = std::chrono::high_resolution_clock::now();
+    testBigMultiplication();    
+    auto end_time
+        = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration
+        = end_time - start_time;
+    std::cout << "Big multiplication test duration: "
+              << duration.count() << " seconds" << std::endl;
     std::cout << "All matrix tests passed." << std::endl;
     return 0;
 }
