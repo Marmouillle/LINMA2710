@@ -6,7 +6,7 @@
 #include <string>
 #include <omp.h>
 
-#include "matrix copy.hpp"
+#include "matrix.hpp"
 
 int main(int argc, char *argv[])
 {

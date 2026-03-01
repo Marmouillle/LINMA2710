@@ -66,7 +66,7 @@ aside(tip(md"As accessing global variables is slow in Julia, it is important to 
 # ╔═╡ 9956af59-12e9-4eb6-bf63-03e2936a5912
 sum_float_options = hbox([
 	Div(vbox([
-		md"""OpenMP : $(@bind sum_float_pragma_openmp Select(["No pragma", "simd"]))""",
+		md"""OpenMP : $(@bind sum_float_pragma_openmp Select(["No pragma", "simd", "simd simdlen(1)", "simd simdlen(2)", "simd simdlen(4)", "simd simdlen(8)"]))""",
 		md"""$(@bind sum_float_pragma_fastmath Select(["No pragma", "float_control(precise, off)"]))""",
 		md"""Vectorize : $(@bind sum_float_pragma_vectorize Select(["No pragma", "vectorize(disable)", "vectorize(enable)", "vectorize_width(1)", "vectorize_width(2)", "vectorize_width(4)", "vectorize_width(8)", "vectorize_width(16)"]))""",
 		md"""Interleave : $(@bind sum_float_pragma_interleave Select(["No pragma", "interleave(disable)", "interleave(enable)", "interleave_count(1)", "interleave_count(2)", "interleave_count(4)", "interleave_count(8)"]))"""]),
@@ -77,7 +77,7 @@ sum_float_options = hbox([
 	    	md"""$(@bind sum_float_opt Select(["-O0", "-O1", "-O2", "-O3"], default = "-O0"))""",
 			md"""$(@bind sum_float_flags MultiCheckBox(["-ffast-math", "-fopenmp"]))""",
 		]),
-	    md"""$(@bind sum_float_m MultiCheckBox(["-msse3", "-mavx2", "-mavx512f"]))""",
+	    md"""$(@bind sum_float_m MultiCheckBox(["-msse3", "-mavx2", "-mavx512f", "-march=native"]))""",
 	])
 ]);
 
@@ -275,7 +275,7 @@ md"## LLVM Loop Vectorizer for a C array"
 md"## LLVM Loop Vectorizer for a C++ vector"
 
 # ╔═╡ 49ca9d35-cce8-45fd-8c2e-1dd92f056c93
-aside(tip(md"Easily call C++ code from Julia or Python by adding a C interface like the `c_sum` in this example."), v_offset = -170)
+aside(tip(md"Easily call C++ code from Julia or Python by adding a C interface like the `c_sum` in this example."), v_offset = -140)
 
 # ╔═╡ 48d3e554-28f3-4ca3-a111-8a9904771426
 function cpp_sum_code(T; pragmas = String[], loop_pragmas = String[])
@@ -377,7 +377,168 @@ void add($T *a, int length) {
 end;
 
 # ╔═╡ d9277160-4c3d-4069-a4af-02913748d727
-md"## Why interleaving ?"
+md"## Modern CPU architectures"
+
+# ╔═╡ f02210dd-652e-4689-8551-7c3d107cdfe6
+md"## Why reordering ?"
+
+# ╔═╡ 5fd6ad94-06c8-4bbd-90f7-6616ff9ce9b3
+TwoColumnWideLeft(md"""```
+  load  r1 ← a
+  load  r2 ← b
+  load  r3 ← c
+  load  r4 ← d
+  add   r5 ← r1 + r2
+  add   r6 ← r3 + r4
+  add   r7 ← r6 + 1
+```""",
+	md"""
+Assume
+* L1 latency is 4 cycles
+* L2 latency is 12 cycles
+* `a` is missing from L1 cache but is in L2 cache
+""",
+)
+
+
+# ╔═╡ fb336448-84d8-4aa5-a422-13cd9d723fb2
+TwoColumn(md"""
+Without reordering
+
+| Cycle |    ALU    |  ALU   | Load   |  Load  |
+|-------|-----------|--------|--------|--------|
+|   1   |           |        |   `a`  |   `b`  |
+|   2   |           |        |   `c`  |   `d`  |
+|  3-5  |           |        |  L2 ⏳  |  L1 ⏳  |
+|  6-12 |           |        |  L2 ⏳  |        |
+|   13  | `r1 + r2` | `r3 + r4` |        |        |
+|   14  | `r6 + 1`  |           |        |        |
+""",
+	md"""
+With reordering
+
+| Cycle |    ALU    |  ALU   | Load   |  Load  |
+|-------|-----------|--------|--------|--------|
+|   1   |           |        |   `a`  |   `b`  |
+|   2   |           |        |   `c`  |   `d`  |
+|  3-5  |           |        |  L2 ⏳  |  L1 ⏳  |
+|   6   |           | `r3 + r4` |  L2 ⏳  |        |
+|   7   |           | `r6 + 1`  |  L2 ⏳  |        |
+|  8-12 |           |           |  L2 ⏳  |        |
+|   13  | `r1 + r2` |           |        |        |
+""",
+)
+
+# ╔═╡ f39ff087-41f8-40d0-bf65-3633c486f2af
+md"## Without unrolling"
+
+# ╔═╡ b8a86895-4605-41a1-8297-225052d80876
+md"## Interleaving allowed by unrolling"
+
+# ╔═╡ cbe51e09-dadd-4488-bbac-5bcb116aef54
+md"""```
+loop2:
+  load  r1 ← a[i]
+  load  r2 ← b[i]
+  load  r4 ← a[i+1]
+  load  r5 ← b[i+1]
+  add   r3 ← r1 + r2
+  add   r6 ← r4 + r5
+  store c[i] ← r3
+  store c[i+1] ← r6
+  add   i ← i + 2
+  cmp   i, N-1
+  jl  #loop2
+  cmp   i, N
+  jl  #loop ; tail case, no unrolling
+```
+
+| Cycle |    ALU    |  ALU   | Load   |  Load  |   Store   |  Jump  |
+|-------|-----------|--------|--------|--------|-----------|--------|
+|   1   |           |        | `a[i]` | `b[i]` |           |        |
+|   2   |           |        | `a[i+1]` | `b[i+1]` |           |        |
+|   3-4 |           |        |  L1 ⏳  |  L1 ⏳  |           |        |
+|   5   | `r1 + r2` |        |        |        |           |        |
+|   6   |           | `r4 + r5` |        |        |  `c[i]`   |        |
+|   7   |  `i + 2`  |           |        |        |  `c[i+1]`   |        |
+|   8   | `i <? N-1`  |        |        |        |           |        |
+|   9   |           |        |        |        |           | #loop2  |
+"""
+
+# ╔═╡ c7c2f956-3f06-4168-a666-e2c01cc0c954
+md"## Further notes"
+
+# ╔═╡ ffb3eb82-9152-4bda-bfb3-cedecc737037
+md"""
+* Can be controlled with `#pragma clang loop interleave_count(4)` but the compiler usually already does a good job choosing the `interleave_count`
+* This count depends on whether it is *compute bound* or *memory bound*, see next lecture where we discuss these.
+* The above examples assumes the value of `a[i]` etc... are in L1 cache. If not (aka "L1 cache miss"), the latency for loading `a[i]`, will be much longer.
+
+Additional practical limits include:
+
+| Limit | Typical value | Applies when |
+|---|---|---|
+| Load ports | 2/cycle | Always — hard throughput ceiling |
+| Load buffer (MOB) | ~70-100 entries | All loads, hit or miss |
+| Line fill buffers | ~12 entries | L1 cache misses only |
+| Reorder buffer | ~200 μops | Window used for reordering |
+"""
+
+# ╔═╡ 8c2d9575-573d-4ed5-aabe-742cae187446
+md"# Fused instructions"
+
+# ╔═╡ 11dbb3e0-c50f-446d-a695-46249e4c8437
+md"## Fused Multiply-Add (FMA)"
+
+# ╔═╡ 7475c864-79f3-4156-933f-eea9a6d7000d
+aside(md"Explicit FMA: $(@bind explicit_fma CheckBox())", v_offset = -50)
+
+# ╔═╡ 6a5c5618-5deb-4db5-b8e7-61c6c0eb9eb1
+function c_fma_code(T; loop_pragmas = String[], openmp_pragmas = String[], pragmas = String[], fma::Bool)
+	if fma
+		code = """
+#include <math.h>
+"""
+	else
+		code = ""
+	end
+	code *= """
+void elementwise_muladd($T *c, $T *a, $T *b, int length) {
+    $T total = 0;
+"""
+	for pragma in loop_pragmas
+		code *= """
+	#pragma clang loop $pragma
+"""
+	end
+	for pragma in openmp_pragmas
+		code *= """
+	#pragma omp $pragma
+"""
+	end
+	code *= """
+    for (int i = 0; i < length; i++) {
+"""
+	for pragma in pragmas
+		code *= """
+	    #pragma $pragma
+"""
+	end
+	if fma
+		code *= """
+        c[i] = fma(a[i], b[i], c[i]);
+"""
+	else
+		code *= """
+        c[i] += a[i] * b[i];
+"""
+	end
+	code *= """
+    }
+    return;
+}"""
+	return CCode(code)
+end;
 
 # ╔═╡ 7dd1fa44-ed35-4abe-853f-58fe4085b441
 md"## Further readings"
@@ -402,7 +563,7 @@ options = vbox([
 	md"""$(@bind sum_pragma_interleave Select(["No pragma", "interleave(disable)", "interleave(enable)", "interleave_count(1)", "interleave_count(2)", "interleave_count(4)", "interleave_count(8)"]))""",
 	md"""Element type : $(@bind sum_type Select(["char", "short", "int", "float", "double"], default = "int"))""",
 	md"""Optimization level : $(@bind sum_opt Select(["-O0", "-O1", "-O2", "-O3"], default = "-O0"))""",
-	md"""$(@bind sum_flags MultiCheckBox(["-msse3", "-mavx2", "-mavx512f", "-ffast-math"], orientation = :column))""",
+	md"""$(@bind sum_flags MultiCheckBox(["-msse3", "-mavx2", "-mavx512f", "-ffast-math", "-march=native"], orientation = :column))""",
 ]);
 
 # ╔═╡ bc8bc245-6c10-4759-a85b-b407ef016c60
@@ -446,6 +607,23 @@ emit_llvm(c_add_code_for_llvm, cflags = [sum_opt; sum_flags]);
 # ╔═╡ ac232ad3-669d-4aec-8a50-ce5185adb374
 aside(c_add_code_for_llvm, v_offset = -480)
 
+# ╔═╡ 0c55e962-39e6-411a-8966-e5955c7898de
+aside(options, v_offset = -260)
+
+# ╔═╡ ecc59f66-91c8-4978-b039-62c6020ce71e
+c_fma_code_for_llvm = c_fma_code(
+	sum_type,
+	pragmas = filter(!isequal("No pragma"), [sum_pragma_fastmath]),
+	loop_pragmas = filter(!isequal("No pragma"), [sum_pragma_vectorize, sum_pragma_interleave]),
+	fma = explicit_fma,
+);
+
+# ╔═╡ 05a64152-934c-448b-b516-4d02bbd25591
+emit_llvm(c_fma_code_for_llvm, cflags = [sum_opt; sum_flags]);
+
+# ╔═╡ 8c892eac-40fc-4bba-a56d-fd7abd7f1ab8
+aside(c_fma_code_for_llvm, v_offset = -480)
+
 # ╔═╡ 174407b5-75be-4930-a476-7f2bfa35cdf0
 function c_sum_code(T; loop_pragmas = String[], openmp_pragmas = String[], pragmas = String[])
 	code = """
@@ -483,7 +661,7 @@ sum_float_code, sum_float_lib = compile_lib(c_sum_code("float",
 	pragmas = filter(!isequal("No pragma"), [sum_float_pragma_fastmath]),
 	loop_pragmas = filter(!isequal("No pragma"), [sum_float_pragma_vectorize, sum_float_pragma_interleave]),
 	openmp_pragmas = filter(!isequal("No pragma"), [sum_float_pragma_openmp]),
-), lib = true, cflags = [sum_float_opt; sum_float_flags]);
+), lib = true, cflags = [sum_float_opt; sum_float_flags; sum_float_m]);
 
 # ╔═╡ a38807e2-d901-4467-b35e-248da491abff
 sum_float_code
@@ -566,14 +744,51 @@ img("https://www.karlrupp.net/wp-content/uploads/2018/02/42-years-processor-tren
 # ╔═╡ 42fcfc12-fb25-41fe-9ae0-3b76e7e24566
 TwoColumn(
 	md"""
-```
-load a[i]
-load 
+Reorder buffer:
+```c
+a = b + c;
+d = a + c; // Needs to wait for a
+e = b - c; // Independent from a
+           // Can be executed before
 ```
 
 Execution ports
 * Arithmetic Logic Unit (ALU)
+  ```c
+  a + b
+  ```
 * Address Generation Unit (AGU)
+  - Load AGU in port 2 & 3
+  - Store AGU in port 4
+
+  ```c
+  a[i] -> a + i * sizeof(...)
+  ```
+""",
+	img("https://uops.info/pipeline.png"),
+)
+
+# ╔═╡ 38ee4e77-a55a-49a5-8bd5-738f42f1340d
+TwoColumnWideLeft(md"""
+```
+loop:
+  load  r1 ← a[i]
+  load  r2 ← b[i]
+  add   r3 ← r1 + r2
+  store c[i] ← r3
+  add   i ← i + 1
+  cmp   i, N
+  jl  #loop ; Jump if Less
+```
+
+| Cycle |    ALU    |  ALU   | Load   |  Load  |   Store   |  Jump  |
+|-------|-----------|--------|--------|--------|-----------|--------|
+|   1   |           |        | `a[i]` | `b[i]` |           |        |
+|   2-4 |           |        |  L1 ⏳  |  L1 ⏳  |           |        |
+|   5   | `r1 + r2` |        |        |        |           |        |
+|   6   |  `i + 1`  |        |        |        |  `c[i]`   |        |
+|   7   | `i <? N`  |        |        |        |           |        |
+|   8   |           |        |        |        |           | #loop  |
 """,
 	img("https://uops.info/pipeline.png"),
 )
@@ -599,7 +814,7 @@ qa(md"How to speed up the C code ?",
 md"""
 Try passing the following flags to Clang by selecting them and waiting for the benchmark timing to refresh: $(sum_float_options)
 
-What are they doing ? We'll see in the slide...
+What are they doing ? We'll see in the next slide...
 """
 )
 
@@ -1533,7 +1748,7 @@ version = "4.1.0+0"
 # ╟─a38807e2-d901-4467-b35e-248da491abff
 # ╠═a841d535-c32b-4bb6-8132-600253038508
 # ╠═baf29a4d-337c-430c-b382-9b2dab7ce69a
-# ╠═1548a494-80a9-4295-a012-88be6de7fcfa
+# ╟─1548a494-80a9-4295-a012-88be6de7fcfa
 # ╟─ec98ab34-cb2b-48c1-a9d2-3fa9c7821d11
 # ╠═8b7c3a6e-bd6a-425e-8040-340fdb6b0dd0
 # ╠═691d01a2-12fc-4782-a9f9-a732746285c6
@@ -1589,9 +1804,9 @@ version = "4.1.0+0"
 # ╟─403bb0f1-5514-486e-9f81-fba9d6031ee1
 # ╟─b9ad74c5-d99d-4129-afa2-4ff62eedf796
 # ╠═e6fac999-9f54-42f9-a1b7-3fd883b891ab
-# ╠═a7421d94-6966-4b71-b8c2-7553b209f146
-# ╠═bc8bc245-6c10-4759-a85b-b407ef016c60
-# ╠═9cfd52a7-f5b9-424a-b1a4-b81f63e3b30c
+# ╟─a7421d94-6966-4b71-b8c2-7553b209f146
+# ╟─bc8bc245-6c10-4759-a85b-b407ef016c60
+# ╟─9cfd52a7-f5b9-424a-b1a4-b81f63e3b30c
 # ╟─41d1448e-72c9-431c-a614-c7922e35c883
 # ╟─69bdd3ba-dbeb-4ef8-acb7-6314bee13c8c
 # ╠═7ab127df-8afd-4ebe-8403-9ca3bcc2f8e3
@@ -1617,6 +1832,23 @@ version = "4.1.0+0"
 # ╟─dabe87b7-403a-464b-b2bf-1c2bf4cecd41
 # ╟─d9277160-4c3d-4069-a4af-02913748d727
 # ╟─42fcfc12-fb25-41fe-9ae0-3b76e7e24566
+# ╟─f02210dd-652e-4689-8551-7c3d107cdfe6
+# ╟─5fd6ad94-06c8-4bbd-90f7-6616ff9ce9b3
+# ╟─fb336448-84d8-4aa5-a422-13cd9d723fb2
+# ╟─f39ff087-41f8-40d0-bf65-3633c486f2af
+# ╟─38ee4e77-a55a-49a5-8bd5-738f42f1340d
+# ╟─b8a86895-4605-41a1-8297-225052d80876
+# ╟─cbe51e09-dadd-4488-bbac-5bcb116aef54
+# ╟─c7c2f956-3f06-4168-a666-e2c01cc0c954
+# ╟─ffb3eb82-9152-4bda-bfb3-cedecc737037
+# ╟─8c2d9575-573d-4ed5-aabe-742cae187446
+# ╟─11dbb3e0-c50f-446d-a695-46249e4c8437
+# ╟─05a64152-934c-448b-b516-4d02bbd25591
+# ╟─8c892eac-40fc-4bba-a56d-fd7abd7f1ab8
+# ╟─0c55e962-39e6-411a-8966-e5955c7898de
+# ╟─7475c864-79f3-4156-933f-eea9a6d7000d
+# ╟─ecc59f66-91c8-4978-b039-62c6020ce71e
+# ╟─6a5c5618-5deb-4db5-b8e7-61c6c0eb9eb1
 # ╟─7dd1fa44-ed35-4abe-853f-58fe4085b441
 # ╟─fcf5c210-c100-4534-a65b-9bee23c518da
 # ╟─9d86cb9c-396c-4357-a336-2773ee84dc2e
