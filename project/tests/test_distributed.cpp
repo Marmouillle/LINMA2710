@@ -38,6 +38,7 @@ void testConstructorAndBasics() {
     Matrix gathered = distMatrix.gather();
     assert(matricesEqual(gathered, testMatrix));
 
+
     if (rank == 0)
         std::cout << "testConstructorAndBasics passed." << std::endl;
 }
@@ -87,9 +88,10 @@ void testApply() {
 
     auto squareFunc = [](double x) { return x * x; };
     DistributedMatrix squaredMatrix = distMatrix.apply(squareFunc);
-
     Matrix gathered = squaredMatrix.gather();
-    assert(matricesEqual(gathered, testMatrix.apply(squareFunc)));
+    Matrix expected = testMatrix.apply(squareFunc);
+
+    assert(matricesEqual(gathered, expected));
 
     if (rank == 0)
         std::cout << "testApply passed." << std::endl;
@@ -152,6 +154,7 @@ void testMultiplyTransposed() {
     int rank, numProcs;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
+    std::cout << "Process " << rank << " starting testMultiplyTransposed."<< numProcs << std::endl;
 
     Matrix matrix1Full(3, 5);
     Matrix matrix2Full(4, 5);

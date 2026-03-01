@@ -17,5 +17,8 @@ def test_bench_plot():
     plt.grid(True, which="both", ls="--")
     plt.savefig('openMP_bench_plot.png')
 
+def mpi_bench_plot():
+    df = pd.read_csv("mpi_bench.csv")
+    
 if __name__ == "__main__":
     test_bench_plot()

@@ -29,6 +29,9 @@ test_opencl: tests/test_opencl.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_o
 run_opencl: test_opencl
 	./test_opencl
 
+# --- Part 5: Additional Benchmarks ---
+mpi_bench: tests/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
+	$(MPICXX) $(CXXFLAGS) $(INCLUDE) -o mpi_bench tests/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp
 # --- Utilities ---
 all: test_matrix test_distributed test_opencl
 

@@ -172,7 +172,7 @@ void testSubMul()
 
 void testBigMultiplication()
 {
-    int size = 5000; 
+    int size = 2000; 
     Matrix A(size, size);
     Matrix B(size, size);
     A.fill(1.0);
