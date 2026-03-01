@@ -79,16 +79,18 @@ Matrix Matrix::operator*(const Matrix &other) const
     #pragma omp parallel
     {
         #pragma omp single
-        //std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
+        {
+            std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
+        }
     }
-    #pragma omp parallel for collapse(2) schedule(static)
+    #pragma omp parallel for collapse(3) schedule(static)
     for (int ii = 0; ii < rows; ii += block){
-        int iimax = std::min(ii + block, rows);
         for (int jj = 0; jj < other.cols; jj += block)
         {
-            int jjmax = std::min(jj + block, other.cols);
             for (int kk = 0; kk < cols; kk += block)
             {   
+                int iimax = std::min(ii + block, rows);
+                int jjmax = std::min(jj + block, other.cols);
                 int kkmax = std::min(kk + block, cols);
 
                 for (int i = ii; i < iimax; ++i)
