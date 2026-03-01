@@ -17,5 +17,21 @@ def test_bench_plot():
     plt.grid(True, which="both", ls="--")
     plt.savefig('openMP_bench_plot.png')
 
+def speed_up():
+    df = pd.read_csv("openMP_bench.csv")
+    plt.figure(figsize=(10, 6))
+    no_threads = df[df['NumThreads'] == 1]
+    for threads in df['NumThreads'].unique():
+        subset = df[df['NumThreads'] == threads]
+        speedup = no_threads['Duration'].values / subset['Duration'].values
+        plt.plot(subset['Size'], speedup/threads, marker='o', label=f'Threads: {threads}')
+    plt.legend()
+    plt.title('Speedup vs Size')
+    plt.xlabel('Size')
+    plt.ylabel('Speedup')
+    plt.grid(True, which="both", ls="--")
+    plt.savefig('openMP_speedup_plot.png')
+
 if __name__ == "__main__":
     test_bench_plot()
+    speed_up()
