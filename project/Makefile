@@ -1,6 +1,7 @@
 CXX = g++
 MPICXX = mpic++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2
+CVFLAGS = -O3 -march=native -ffast-math -funroll-loops
 INCLUDE = -Iinclude
 
 # OpenMP flag: set to empty to disable (e.g., on macOS without OpenMP)
@@ -15,6 +16,12 @@ test_matrix: tests/test_matrix.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
 run_matrix: test_matrix
 	./test_matrix
 
+test_optimized: tests/test_optimized_matrix.cpp $(SRC_DIR)/new_matrix.cpp include/new_matrix.hpp
+	$(CXX) $(CVFLAGS) $(INCLUDE) -o test_optimized tests/test_optimized_matrix.cpp $(SRC_DIR)/new_matrix.cpp
+
+run_optimized: test_optimized
+	./test_optimized
+	
 # --- Part 3: Distributed Matrix (MPI) ---
 test_distributed: tests/test_distributed.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
 	$(MPICXX) $(CXXFLAGS) $(INCLUDE) -o test_distributed tests/test_distributed.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp

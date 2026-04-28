@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     int max_size = 5000; // Maximum matrix size to test
     std::fstream bench_file;
-    bench_file.open("bench.csv", std::ios::out);
+    bench_file.open("omp_bench.csv", std::ios::out);
     bench_file << "Size,Duration,NumThreads\n";
     std::cout << "Max number of threads available: " << omp_get_max_threads() << std::endl;
     int max_threads = omp_get_max_threads();

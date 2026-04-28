@@ -3,13 +3,13 @@ import numpy as np
 import pandas as pd
 
 def test_bench_plot():
-    df = pd.read_csv("./project/openMP_bench.csv")
+    df = pd.read_csv("./project/omp_bench.csv")
     plt.figure(figsize=(10, 6))
     for threads in df['NumThreads'].unique():
         subset = df[df['NumThreads'] == threads]
         fitted_curve = np.polyfit(np.log(subset['Size']), np.log(subset['Duration']), 1)
         plt.loglog(subset['Size'], subset['Duration'], marker='o', label=f'Threads: {threads}')
-        plt.loglog(subset['Size'], np.exp(fitted_curve[1]) * subset['Size'] ** fitted_curve[0], linestyle='--', alpha=0.7)
+        plt.loglog(subset['Size'], np.exp(fitted_curve[1]) * subset['Size'] ** fitted_curve[0], linestyle='--', alpha=0.7, label=f'fit {threads} with slope {fitted_curve[0]:.2f}')
     plt.legend()
     plt.title('OpenMP Benchmark')
     plt.xlabel('Size')
@@ -19,7 +19,7 @@ def test_bench_plot():
     plt.close()
 
 def speed_up():
-    df = pd.read_csv("./project/openMP_bench.csv")
+    df = pd.read_csv("./project/omp_bench.csv")
     plt.figure(figsize=(10, 6))
     no_threads = df[df['NumThreads'] == 1]
     for threads in df['NumThreads'].unique():
@@ -41,7 +41,7 @@ def mpi_bench_plot():
         subset = df[df['NumProcesses'] == processes]
         fitted_curve = np.polyfit(np.log(subset['Size']), np.log(subset['Duration']), 1)
         plt.loglog(subset['Size'], subset['Duration'], marker='o', label=f'Processes: {processes}')
-        plt.loglog(subset['Size'], np.exp(fitted_curve[1]) * subset['Size'] ** fitted_curve[0], linestyle='--', alpha=0.7)
+        plt.loglog(subset['Size'], np.exp(fitted_curve[1]) * subset['Size'] ** fitted_curve[0], linestyle='--', alpha=0.7, label=f'fit {processes} with slope {fitted_curve[0]:.2f}')
     plt.title('MPI Benchmark')
     plt.xlabel('Size')
     plt.ylabel('Duration (seconds)')
@@ -51,7 +51,7 @@ def mpi_bench_plot():
     plt.close()
 
 def mpi_vs_openmp():
-    df_omp = pd.read_csv("./project/openMP_bench.csv")
+    df_omp = pd.read_csv("./project/omp_bench.csv")
     df_mpi = pd.read_csv("./project/mpi_bench.csv")
     plt.figure(figsize=(10, 6))
     for threads in df_omp['NumThreads'].unique():
