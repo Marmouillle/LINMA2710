@@ -1,13 +1,7 @@
-#include <cstring>
-#include <algorithm>
-#include <thread>
-#include <vector>
-#include <cstdlib>
-#include <immintrin.h>
-
-#include "new_matrix.hpp"
+#include "matrix.hpp"
 #include <stdexcept>
 #include <iostream>
+//#include <omp.h>
 
 Matrix::Matrix(int rows, int cols)
     : rows(rows), cols(cols), data(rows * cols, 0.0)
@@ -48,8 +42,11 @@ void Matrix::fill(double value)
 
 Matrix Matrix::operator+(const Matrix &other) const
 {
+    //if (rows != other.rows || cols != other.cols)
+    //    throw std::invalid_argument("Matrix dimensions must match for addition");
 
     Matrix result(rows, cols);
+    //#pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] + other.data[k];
     }
@@ -59,108 +56,60 @@ Matrix Matrix::operator+(const Matrix &other) const
 
 Matrix Matrix::operator-(const Matrix &other) const
 {
+    //if (rows != other.rows || cols != other.cols)
+    //    throw std::invalid_argument("Matrix dimensions must match for substraction");
+
     Matrix result(rows, cols);
+    //#pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] - other.data[k];
     }
 
     return result;
 }
-// Matrix multiplication using AVX2 vectorization in the registers
-// FMA for fast operation (C = A*B + C)
-// Operates on blocks of 8×8 to fit in the registers
 
-// Blocking parameters (tuned for L1/L2 cache sizes)
-static constexpr int MC = 48;
-static constexpr int KC = 256;
-static constexpr int NC = 512;
-
-// 8×8 AVX2/FMA micro-kernel
-__attribute__((always_inline))
-static inline void micro_8x8(
-    const double* __restrict__ A,
-    const double* __restrict__ B,
-    double*       __restrict__ C,
-    int klen, int n)
+Matrix Matrix::operator*(const Matrix &other) const
 {
-    __m256d c[8][2];
-    // First load C into registers
-    for (int r = 0; r < 8; r++) {
-        c[r][0] = _mm256_loadu_pd(C + r*n);
-        c[r][1] = _mm256_loadu_pd(C + r*n + 4);
-    }
+    //if (cols != other.rows)
+    //    throw std::invalid_argument("Matrix dimensions must match for multiplication");
 
-    const double* Brow = B;
-    // Then loop over k dimension, broadcasting A elements and multiplying with B
-    for (int k = 0; k < klen; k++, Brow += n) {
-        __m256d b0 = _mm256_loadu_pd(Brow);
-        __m256d b1 = _mm256_loadu_pd(Brow + 4);
-        // prefetch is used to bring the next row of B into cache while we are computing with the current one
-        _mm_prefetch(reinterpret_cast<const char*>(Brow + 8*n), _MM_HINT_T0); 
+    int newcols = other.cols;
+    Matrix result(rows, newcols);
+    int block = 32;
+    //#pragma omp parallel
+    //{
+    //    #pragma omp single
+    //    {
+    //        std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
+    //    }
+    //}
+    //#pragma omp parallel for collapse(3) schedule(static)
+    for (int ii = 0; ii < rows; ii += block){
+        for (int jj = 0; jj < other.cols; jj += block)
+        {
+            for (int kk = 0; kk < cols; kk += block)
+            {   
+                int iimax = std::min(ii + block, rows);
+                int jjmax = std::min(jj + block, other.cols);
+                int kkmax = std::min(kk + block, cols);
 
-    #define MUL_ROW(r) { \
-    __m256d a = _mm256_broadcast_sd(A + (r)*n + k); \
-    c[r][0] = _mm256_fmadd_pd(a, b0, c[r][0]); \
-    c[r][1] = _mm256_fmadd_pd(a, b1, c[r][1]); }
-        MUL_ROW(0) MUL_ROW(1) MUL_ROW(2) MUL_ROW(3)
-        MUL_ROW(4) MUL_ROW(5) MUL_ROW(6) MUL_ROW(7)
-    #undef MUL_ROW
-    }
+                for (int i = ii; i < iimax; ++i)
+                {
+                    double *result_row = &result.data[i*other.cols];
+                    const double *Arow = &data[i*cols];
 
-    // Finally store the results back to C
-    for (int r = 0; r < 8; r++) {
-        _mm256_storeu_pd(C + r*n,     c[r][0]);
-        _mm256_storeu_pd(C + r*n + 4, c[r][1]);
-    }
-}
+                    for (int k = kk; k < kkmax; ++k)
+                    {
+                        double a = Arow[k];
+                        const double *Brow = &other.data[k*other.cols];
 
-Matrix Matrix::operator*(const Matrix& other) const
-{
-    // Square only in the tests ?
-    const int n  = rows;
-    const int n2 = other.cols;
-
-    Matrix result(n, n2);
-
-    const double* A = this->data.data();
-    const double* B = other.data.data();
-    double*       C = result.data.data();
-
-    std::memset(C, 0, (size_t)n * n2 * sizeof(double));
-
-    for (int kk = 0; kk < cols; kk += KC) {
-        const int kkend = std::min(kk + KC, cols);
-        // klen=KC except for the last block which may be smaller
-        const int klen  = kkend - kk;
-
-        for (int ii = 0; ii < n; ii += MC) {
-            const int iiend = std::min(ii + MC, n);
-
-            for (int jj = 0; jj < n2; jj += NC) {
-                const int jjend = std::min(jj + NC, n2);
-
-                for (int i = ii; i < iiend; i += 8) {
-                    const int ir = std::min(8, iiend - i);
-                    for (int j = jj; j < jjend; j += 8) {
-                        const int jr = std::min(8, jjend - j);
-
-                        if (ir == 8 && jr == 8) {
-                            micro_8x8(A + i*cols + kk,
-                                      B + kk*n2 + j,
-                                      C + i*n2  + j,
-                                      klen, n2);
-                        } else {
-                            for (int i2 = i;  i2 < i  + ir;   i2++)
-                            for (int k  = kk; k  < kkend;     k++)
-                            for (int j2 = j;  j2 < j  + jr;   j2++)
-                                C[i2*n2 + j2] += A[i2*cols + k] * B[k*n2 + j2];
-                        }
+                        for (int j = jj; j < jjmax; ++j)
+                            result_row[j] += a * Brow[j];
                     }
                 }
             }
         }
     }
-
     return result;
 }
 

@@ -24,22 +24,19 @@ DistributedMatrix::DistributedMatrix(const Matrix& matrix, int numProcs)
     localCols = globalCols / numProcesses;
     int remainder = globalCols % numProcesses;
     // Distribute remaining columns in first processes
-    if (rank < remainder)
-    {        localCols++;
+    if (rank < remainder){        
+        localCols++;
         startCol = rank * localCols;
     }
     else
-    {
         startCol = rank * localCols + remainder;
-    }
+
     localData = Matrix(globalRows, localCols);
-    for (int i = 0; i < globalRows; i++)
-    {
-        for (int j = 0; j < localCols; j++)
-        {            localData.set(i, j, matrix.get(i, startCol + j));
+    for (int i = 0; i < globalRows; i++){
+        for (int j = 0; j < localCols; j++){            
+            localData.set(i, j, matrix.get(i, startCol + j));
         }
     }
-
 }
 
 DistributedMatrix::DistributedMatrix(const DistributedMatrix& other)
@@ -61,9 +58,7 @@ double DistributedMatrix::get(int i, int j) const
 {
     int p = ownerProcess(j);
     if (p != rank)
-    {
         throw std::out_of_range("Column index not owned by this process");
-    }
     return localData.get(i, localColIndex(j));
 }
 
@@ -71,27 +66,21 @@ void DistributedMatrix::set(int i, int j, double value)
 {
     int p = ownerProcess(j);
     if (p != rank)
-    {
         throw std::out_of_range("Column index not owned by this process");
-    }
     localData.set(i, localColIndex(j), value);
 }
 
 int DistributedMatrix::globalColIndex(int localColIdx) const
 {
     if (localColIdx < 0 || localColIdx >= localCols)
-    {
         throw std::out_of_range("Local column index out of range for this process");
-    }
     return startCol+localColIdx;
 }
 
 int DistributedMatrix::localColIndex(int globalColIdx) const
 {
     if (globalColIdx < startCol || globalColIdx >= startCol + localCols)
-    {
         throw std::out_of_range("Global column index not owned by this process");
-    }
     return globalColIdx-startCol;
 }
 
@@ -100,15 +89,11 @@ int DistributedMatrix::ownerProcess(int globalColIdx) const
     int colPerProcess = globalCols / numProcesses;
     int remainder = globalCols % numProcesses;
     if (globalColIdx < 0 || globalColIdx >= globalCols)
-    {
         throw std::out_of_range("Global column index out of range");
-    }
     if (globalColIdx < (colPerProcess + 1) * remainder)
-    {        return globalColIdx / (colPerProcess + 1);
-    }
+        return globalColIdx / (colPerProcess + 1);
     else
-    {        return (globalColIdx - remainder) / colPerProcess;
-    }
+        return (globalColIdx - remainder) / colPerProcess;
 }
 
 void DistributedMatrix::fill(double value)
@@ -118,14 +103,8 @@ void DistributedMatrix::fill(double value)
 
 DistributedMatrix DistributedMatrix::operator+(const DistributedMatrix& other) const
 {
-    // TODO
     if (other.globalRows != globalRows || other.globalCols != globalCols)
-    {
         throw std::invalid_argument("Matrix dimensions must match for addition");
-    }
-    else if (other.startCol != startCol){
-        return DistributedMatrix(*this);
-    }
     else{
         DistributedMatrix result = DistributedMatrix(*this);
         result.localData = localData + other.localData;
@@ -137,12 +116,7 @@ DistributedMatrix DistributedMatrix::operator+(const DistributedMatrix& other) c
 DistributedMatrix DistributedMatrix::operator-(const DistributedMatrix& other) const
 {
     if (other.globalRows != globalRows || other.globalCols != globalCols)
-    {
         throw std::invalid_argument("Matrix dimensions must match for addition");
-    }
-    else if (other.startCol != startCol){
-        return DistributedMatrix(*this);
-    }
     else{
         DistributedMatrix result = DistributedMatrix(*this);
         result.localData = localData - other.localData;
@@ -166,15 +140,11 @@ Matrix DistributedMatrix::transpose() const
 void DistributedMatrix::sub_mul(double scalar, const DistributedMatrix& other)
 {
     if (other.globalRows != globalRows || other.globalCols != globalCols)
-    {
         throw std::invalid_argument("Matrix dimensions must match for operation");
-    }
-    else if (other.startCol != startCol){
+    else if (other.startCol != startCol)
         return;
-    }
-    else{
+    else
         localData.sub_mul(scalar, other.localData);
-    }
 }
 
 DistributedMatrix DistributedMatrix::apply(const std::function<double(double)>& func) const
@@ -189,19 +159,12 @@ DistributedMatrix DistributedMatrix::applyBinary(
     const DistributedMatrix& b,
     const std::function<double(double, double)>& func)
 {
-    if (a.globalRows != b.globalRows || a.globalCols != b.globalCols)
-    {
+    if (a.globalRows != b.globalRows || a.globalCols != b.globalCols )
         throw std::invalid_argument("Matrix dimensions must match for operation");
-    }
-    else if (a.startCol != b.startCol){
-        return DistributedMatrix(a);
-    }
     DistributedMatrix result = DistributedMatrix(a);
     for (int i = 0; i < a.localData.numRows(); i++){
         for (int j = 0; j < a.localData.numCols(); j++){
-            double valA = a.localData.get(i, j);
-            double valB = b.localData.get(i, j);
-            result.localData.set(i, j, func(valA, valB));
+            result.localData.set(i, j, func(a.localData.get(i, j), b.localData.get(i, j)));
         }
     }
     return result;
@@ -211,14 +174,22 @@ DistributedMatrix multiply(const Matrix& left, const DistributedMatrix& right){
     DistributedMatrix result = DistributedMatrix(right);
     result.globalRows = left.numRows();
     result.localData = Matrix(result.globalRows, result.localCols);
-    // Compute resulting matrice on cols corresponding to local cols of right
-    for (int i = 0; i < left.numRows(); i++){
-        for (int j = 0; j < right.localCols; j++){
-            double sum = 0.0;
-            for (int k = 0; k < right.globalRows; k++){
-                sum += left.get(i, k) * right.localData.get(k, j);
+    // Use similar blocking strategy as in matrix_opti.cpp, but adapted for the distributed case
+    for (int kk = 0; kk < right.globalRows; kk += 64) {
+        int KC = std::min(64, right.globalRows - kk);
+        for (int j = 0; j < right.localCols; j += 64) {
+            int jr = std::min(64, right.localCols - j);
+            for (int i = 0; i < left.numRows(); i += 64) {
+                int ir = std::min(64, left.numRows() - i);
+                for (int k = kk; k < kk + KC; k++) {
+                    for (int j2 = j; j2 < j + jr; j2++) {
+                        double r = right.localData.get(k, j2);
+                        for (int i2 = i; i2 < i + ir; i2++) {
+                            result.localData.set(i2, j2, result.localData.get(i2, j2) + left.get(i2, k) * r);
+                        }
+                    }
+                }
             }
-            result.localData.set(i, j, sum);
         }
     }
     return result;
@@ -226,25 +197,19 @@ DistributedMatrix multiply(const Matrix& left, const DistributedMatrix& right){
 
 Matrix DistributedMatrix::multiplyTransposed(const DistributedMatrix& other) const
 {
-    // TODO
     std::vector<double> sendBuffer(other.globalRows * globalRows);
     if (globalCols != other.globalCols){
         throw std::invalid_argument("Matrix dimensions must match for operation");
     }
 
-    
-    if (startCol == other.startCol){
-        Matrix result = localData * other.localData.transpose();
-        for (int i = 0; i < globalRows; i++){
-            for (int j = 0; j < other.globalRows; j++){
-                sendBuffer[i * other.globalRows + j] = result.get(i, j);
-            }
+    // Each process computes its local contribution to the result (localData * other.localData^T)
+    Matrix subresult = localData * other.localData.transpose();
+    for (int i = 0; i < globalRows; i++){
+        for (int j = 0; j < other.globalRows; j++){
+            sendBuffer[i * other.globalRows + j] = subresult.get(i, j);
         }
     }
-    else{
-        std::fill(sendBuffer.begin(), sendBuffer.end(), 0.0);
-        std::cout << "Process " << rank << " has no local columns, sending zeros." << std::endl;
-    }
+
     //Assemble data
     std::vector<double> recvBuffer(globalRows * other.globalRows);
     MPI_Allreduce(sendBuffer.data(), recvBuffer.data(), globalRows * other.globalRows, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
@@ -290,7 +255,7 @@ Matrix DistributedMatrix::gather() const
     int startCol = 0;
     for (int p = 0; p < numProcesses; p++) {
         if (p < remainder) {
-            recvCounts[p] = globalRows * (colPerProcess + 1);
+            recvCounts[p] = globalRows * (colPerProcess + 1); // One extra column for the first 'remainder' processes
             displs[p] = startCol * globalRows;
             startCol += colPerProcess + 1;
         }

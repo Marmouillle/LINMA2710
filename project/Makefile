@@ -18,11 +18,11 @@ test_matrix: tests/test_matrix.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
 run_matrix: test_matrix
 	./test_matrix
 #
-# test_optimized: tests/test_optimized_matrix.cpp $(SRC_DIR)/new_matrix.cpp include/new_matrix.hpp
-#	$(CXX) $(CVFLAGS) $(INCLUDE) -o test_optimized tests/test_optimized_matrix.cpp $(SRC_DIR)/new_matrix.cpp
-#
-#run_optimized: test_optimized
-#	./test_optimized
+test_optimized: tests/test_optimized_matrix.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
+	$(CXX) $(CVFLAGS) $(INCLUDE) -o test_optimized tests/test_optimized_matrix.cpp $(SRC_DIR)/matrix.cpp
+
+run_optimized: test_optimized
+	./test_optimized
 
 # --- Part 3: Distributed Matrix (MPI) ---
 test_distributed: tests/test_distributed.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
@@ -49,6 +49,6 @@ omp_bench: tests/openMP_bench.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
 all: test_matrix test_distributed test_opencl
 
 clean:
-	rm -f test_matrix test_distributed test_opencl
+	rm -f test_matrix test_distributed test_opencl mpi_bench omp_bench test_optimized 
 
 .PHONY: all clean run_matrix run_distributed run_opencl

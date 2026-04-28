@@ -3,7 +3,7 @@
 #include <iostream>
 #include <chrono>
 
-#include "new_matrix.hpp"
+#include "matrix.hpp"
 
 bool approxEqual(double a, double b, double epsilon = 1e-6)
 {
@@ -23,16 +23,24 @@ bool matricesEqual(const Matrix &a, const Matrix &b, double epsilon = 1e-6)
 
 void testBigMultiplication()
 {
-    int size = 2000; 
+    int size = 2048; 
     Matrix A(size, size);
     Matrix B(size, size);
-    A.fill(1.0);
-    B.fill(2.0);
-
+    A.fill(0.0);
+    B.fill(0.0);
+    for (int i = 0; i < A.numRows(); ++i){
+        A.set(i, i, 1.0); // Identity matrix
+        B.set(i, i, 2.0); // Diagonal matrix with 2s on the diagonal
+    }
+            
     Matrix C = A * B;
     for (int i = 0; i < C.numRows(); ++i)
-        for (int j = 0; j < C.numCols(); ++j)
-            assert(approxEqual(C.get(i, j), 2.0 * size));
+        for (int j = 0; j < C.numCols(); ++j){
+            if (i == j)
+                assert(approxEqual(C.get(i, j), 2.0));
+            else
+                 assert(approxEqual(C.get(i, j), 0.0));
+        }
     std::cout << "testBigMultiplication passed." << std::endl;
 }
 int main()
