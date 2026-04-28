@@ -1,7 +1,7 @@
 #include "matrix.hpp"
 #include <stdexcept>
 #include <iostream>
-#include <omp.h>
+//#include <omp.h>
 
 Matrix::Matrix(int rows, int cols)
     : rows(rows), cols(cols), data(rows * cols, 0.0)
@@ -42,11 +42,11 @@ void Matrix::fill(double value)
 
 Matrix Matrix::operator+(const Matrix &other) const
 {
-    if (rows != other.rows || cols != other.cols)
-        throw std::invalid_argument("Matrix dimensions must match for addition");
+    //if (rows != other.rows || cols != other.cols)
+    //    throw std::invalid_argument("Matrix dimensions must match for addition");
 
     Matrix result(rows, cols);
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] + other.data[k];
     }
@@ -56,11 +56,11 @@ Matrix Matrix::operator+(const Matrix &other) const
 
 Matrix Matrix::operator-(const Matrix &other) const
 {
-    if (rows != other.rows || cols != other.cols)
-        throw std::invalid_argument("Matrix dimensions must match for substraction");
+    //if (rows != other.rows || cols != other.cols)
+    //    throw std::invalid_argument("Matrix dimensions must match for substraction");
 
     Matrix result(rows, cols);
-    #pragma omp parallel for
+    //#pragma omp parallel for
     for (int k = 0; k < cols*rows; ++k) {
         result.data[k] = data[k] - other.data[k];
     }
@@ -70,20 +70,20 @@ Matrix Matrix::operator-(const Matrix &other) const
 
 Matrix Matrix::operator*(const Matrix &other) const
 {
-    if (cols != other.rows)
-        throw std::invalid_argument("Matrix dimensions must match for multiplication");
+    //if (cols != other.rows)
+    //    throw std::invalid_argument("Matrix dimensions must match for multiplication");
 
     int newcols = other.cols;
     Matrix result(rows, newcols);
     int block = 32;
-    #pragma omp parallel
-    {
-        #pragma omp single
-        {
-            std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
-        }
-    }
-    #pragma omp parallel for collapse(3) schedule(static)
+    //#pragma omp parallel
+    //{
+    //    #pragma omp single
+    //    {
+    //        std::cout << "Threads used: " << omp_get_num_threads() << std::endl;
+    //    }
+    //}
+    //#pragma omp parallel for collapse(3) schedule(static)
     for (int ii = 0; ii < rows; ii += block){
         for (int jj = 0; jj < other.cols; jj += block)
         {
@@ -145,8 +145,8 @@ Matrix Matrix::apply(const std::function<double(double)> &func) const
 
 void Matrix::sub_mul(double scalar, const Matrix &other)
 {
-    if (rows != other.rows || cols != other.cols)
-        throw std::invalid_argument("Matrix dimensions must match for operation");
+    //if (rows != other.rows || cols != other.cols)
+    //    throw std::invalid_argument("Matrix dimensions must match for operation");
     
     for(int i = 0; i<cols*rows; ++i){
         data[i] = data[i] - scalar*other.data[i];
