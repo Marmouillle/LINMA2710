@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <functional>
+#include <immintrin.h>
 
 class Matrix
 {
