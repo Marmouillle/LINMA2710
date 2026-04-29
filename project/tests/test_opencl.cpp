@@ -9,12 +9,16 @@ bool approxEqual(float a, float b, float epsilon = 1e-5f) {
 }
 
 bool verifyMatrix(const MatrixCL& mat, const std::vector<float>& expected, float epsilon = 1e-5f) {
-    if (static_cast<size_t>(mat.numRows() * mat.numCols()) != expected.size())
+    if (static_cast<size_t>(mat.numRows() * mat.numCols()) != expected.size()){
+        printf("Size mismatch: matrix has %d elements but expected has %zu elements\n", mat.numRows() * mat.numCols(), expected.size());
         return false;
+    }
     std::vector<float> actual = mat.copyToHost();
-    for (size_t i = 0; i < actual.size(); ++i)
+    for (size_t i = 0; i < actual.size(); ++i){
+        printf("actual[%zu] = %f, expected[%zu] = %f\n", i, actual[i], i, expected[i]);
         if (!approxEqual(actual[i], expected[i], epsilon))
             return false;
+    }
     return true;
 }
 
@@ -140,6 +144,7 @@ void testSubMul() {
 int main() {
     try {
         setupOpenCL();
+        printf("fil");
         testFill();
         testCopyConstructorAndAssignment();
         testAddition();

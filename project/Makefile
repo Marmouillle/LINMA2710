@@ -1,6 +1,6 @@
 CXX = g++
 MPICXX = mpic++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2
+CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -g
 CVFLAGS = -O3 -march=native -ffast-math -funroll-loops
 INCLUDE = -Iinclude
 
@@ -38,12 +38,17 @@ test_opencl: tests/test_opencl.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_o
 run_opencl: test_opencl
 	./test_opencl
 
-# --- Part 5: Additional Benchmarks ---
-mpi_bench: tests/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
-	$(MPICXX) $(CXXFLAGS) $(INCLUDE) -o mpi_bench tests/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp
 
-omp_bench: tests/openMP_bench.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
-	$(CXX) $(CXXFLAGS) $(OPENMP_FLAGS) $(INCLUDE) -o omp_bench tests/openMP_bench.cpp $(SRC_DIR)/matrix.cpp
+
+# --- Part 5: Additional Benchmarks ---
+mpi_bench: benchs/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
+	$(MPICXX) $(CXXFLAGS) $(INCLUDE) -o mpi_bench benchs/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp
+
+omp_bench: benchs/openMP_bench.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
+	$(CXX) $(CXXFLAGS) $(OPENMP_FLAGS) $(INCLUDE) -o omp_bench benchs/openMP_bench.cpp $(SRC_DIR)/matrix.cpp
+
+
+
 
 # --- Utilities ---
 all: test_matrix test_distributed test_opencl

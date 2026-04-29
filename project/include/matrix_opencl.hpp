@@ -16,9 +16,11 @@
 struct KernelCache {
     cl::Kernel kernel_fill;
     cl::Kernel kernel_add;
+    cl::Kernel kernel_sub;        // Added because why not
     cl::Kernel kernel_sub_mul;
     cl::Kernel kernel_transpose;
     cl::Kernel kernel_matrix_mul;
+    cl::Kernel kernel_mult;        // Added because why not
 
     bool initialized = false;
 
