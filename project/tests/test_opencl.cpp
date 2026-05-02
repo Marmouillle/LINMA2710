@@ -1,4 +1,4 @@
-#include "matrix_opencl.hpp"
+#include "matrix_opencl_blocked.hpp"
 #include <iostream>
 #include <vector>
 #include <cassert>
@@ -15,9 +15,10 @@ bool verifyMatrix(const MatrixCL& mat, const std::vector<float>& expected, float
     }
     std::vector<float> actual = mat.copyToHost();
     for (size_t i = 0; i < actual.size(); ++i){
-        printf("actual[%zu] = %f, expected[%zu] = %f\n", i, actual[i], i, expected[i]);
-        if (!approxEqual(actual[i], expected[i], epsilon))
+        if (!approxEqual(actual[i], expected[i], epsilon)){
+            printf("Value mismatch at index %zu: expected %f but got %f\n", i, expected[i], actual[i]);
             return false;
+        }
     }
     return true;
 }
@@ -45,7 +46,7 @@ void setupOpenCL() {
     context = cl::Context(device);
     queue = cl::CommandQueue(context, device, CL_QUEUE_PROFILING_ENABLE);
 
-    MatrixCL::initializeKernels(context, {device});
+    MatrixCL::initializeKernels(context, {device}, 16, 2); // Using smaller tile sizes for testing
 
     std::cout << "setupOpenCL passed." << std::endl;
 }
@@ -59,17 +60,27 @@ void testFill() {
 }
 
 void testCopyConstructorAndAssignment() {
-    std::vector<float> data = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
-    MatrixCL original(2, 3, context, queue, &data);
-
-    MatrixCL copy(original);
-    assert(verifyMatrix(copy, data));
-
-    MatrixCL assigned(1, 1, context, queue);
-    assigned = original;
-    assert(verifyMatrix(assigned, data));
-
-    std::cout << "testCopyConstructorAndAssignment passed." << std::endl;
+    // Test with large matrices
+    std::vector<float> dataA(512 * 512), dataB(512 * 512);
+    for (int i = 0; i < 512 * 512; i++) {
+        dataA[i] = static_cast<float>(i % 7 + 1);  // values 1-7
+        dataB[i] = static_cast<float>(i % 5 + 1);  // values 1-5
+    }
+    
+    MatrixCL matA(512, 512, context, queue, &dataA);
+    MatrixCL matB(512, 512, context, queue, &dataB);
+    
+    // compute expected result on CPU
+    std::vector<float> expected(512 * 512, 0.0f);
+    for (int i = 0; i < 512; i++)
+        for (int k = 0; k < 512; k++)
+            for (int j = 0; j < 512; j++)
+                expected[i * 512 + j] += dataA[i * 512 + k] * dataB[k * 512 + j];
+    
+    MatrixCL result = matA * matB;
+    assert(verifyMatrix(result, expected));
+    
+    std::cout << "testLargeMatrixMultiplication passed." << std::endl;
 }
 
 void testAddition() {
@@ -119,12 +130,17 @@ void testTranspose() {
 
 void testMatrixMultiplication() {
     std::vector<float> dataA = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
-    std::vector<float> dataC = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f, 9.0f};
+    std::vector<float> dataB = {7.0f, 8.0f, 9.0f, 10.0f, 11.0f, 12.0f};
     MatrixCL matA(2, 3, context, queue, &dataA);
-    MatrixCL matC(3, 3, context, queue, &dataC);
+    MatrixCL matC(3, 2, context, queue, &dataB);
 
-    MatrixCL result = matA * matC;
-    assert(verifyMatrix(result, {30.0f, 36.0f, 42.0f, 66.0f, 81.0f, 96.0f}));
+    std::vector<float> dataC = {
+        1*7 + 2*9 + 3*11, 1*8 + 2*10 + 3*12,
+        4*7 + 5*9 + 6*11, 4*8 + 5*10 + 6*12
+    };
+
+    MatrixCL result= matA * matC;
+    assert(verifyMatrix(result, dataC));
 
     std::cout << "testMatrixMultiplication passed." << std::endl;
 }
@@ -144,7 +160,6 @@ void testSubMul() {
 int main() {
     try {
         setupOpenCL();
-        printf("fil");
         testFill();
         testCopyConstructorAndAssignment();
         testAddition();

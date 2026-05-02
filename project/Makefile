@@ -32,12 +32,14 @@ run_distributed: test_distributed
 	mpirun -np 4 ./test_distributed
 
 # --- Part 4: OpenCL Matrix ---
-test_opencl: tests/test_opencl.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_opencl.hpp
+test_opencl: tests/test_opencl.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_opencl_blocked.hpp
 	$(CXX) $(CXXFLAGS) $(INCLUDE) -o test_opencl tests/test_opencl.cpp $(SRC_DIR)/matrix_opencl.cpp -lOpenCL
 
 run_opencl: test_opencl
 	./test_opencl
 
+test_opencl_new : tests/test_opencl_new.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_opencl.hpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o test_opencl_new tests/test_opencl_new.cpp $(SRC_DIR)/matrix_opencl.cpp -lOpenCL
 
 
 # --- Part 5: Additional Benchmarks ---
@@ -47,13 +49,17 @@ mpi_bench: benchs/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/mat
 omp_bench: benchs/openMP_bench.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
 	$(CXX) $(CXXFLAGS) $(OPENMP_FLAGS) $(INCLUDE) -o omp_bench benchs/openMP_bench.cpp $(SRC_DIR)/matrix.cpp
 
+opencl_bench: benchs/openCL_bench.cpp $(SRC_DIR)/matrix_opencl.cpp include/matrix_opencl.hpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o opencl_bench benchs/openCL_bench.cpp $(SRC_DIR)/matrix_opencl.cpp -lOpenCL
 
+run_opencl_bench: opencl_bench
+	./opencl_bench
 
 
 # --- Utilities ---
 all: test_matrix test_distributed test_opencl
 
 clean:
-	rm -f test_matrix test_distributed test_opencl mpi_bench omp_bench test_optimized 
+	rm -f test_matrix test_distributed test_opencl mpi_bench omp_bench test_optimized opencl_bench
 
 .PHONY: all clean run_matrix run_distributed run_opencl
