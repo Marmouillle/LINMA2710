@@ -316,4 +316,4 @@ def final_benchmark_plot():
 # module load Python/3.11.3-GCCcore-12.3.0
 
 if __name__ == "__main__":
-    code_carbon_plot()
+    visualize_tuning_results("csv/simd_param_bench.csv")
