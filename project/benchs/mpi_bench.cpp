@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
     if (rank == 0) {
         bench_file.open("mpi_bench.csv", std::ios::app);
         if (bench_file.is_open() && bench_file.tellp() == 0) {
-            bench_file << "Size,DurationTotal,DurationComm,NumProcesses\n";
+            bench_file << "Size,Duration,Comm_time,NumProcesses\n";
         }
     }
     
@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 
         if (rank == 0) {
             std::cout << "Distributed matrix multiplication average duration over " << runs << " runs: " << avg_duration << " seconds" << std::endl;
-            bench_file << size << "," << avg_times[0] << "," << avg_times[1] << "," << num_processes << "\n";
+            bench_file << size << "," << avg_duration << "," << avg_times[1] << "," << num_processes << "\n";
             std::cout << "Benchmark completed." << std::endl;
         }
     }

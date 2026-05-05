@@ -98,6 +98,43 @@ def opencl_optimal_param_plot(size=16384):
     plt.close()
 
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def visualize_tuning_results(csv_path):
+    # Load the data
+    df = pd.read_csv(csv_path)
+
+    # 1. Find the optimum (minimum duration)
+    optimal_row = df.loc[df['Duration'].idxmin()]
+    print("--- Optimal Parameter Set ---")
+    print(f"MC: {optimal_row['MC']}")
+    print(f"KC: {optimal_row['KC']}")
+    print(f"NC: {optimal_row['NC']}")
+    print(f"Min Duration: {optimal_row['Duration']:.4f}s")
+
+    # 2. Slice visualization: Heatmap of MC vs KC at the optimal NC
+    best_nc = optimal_row['NC']
+    slice_df = df[df['NC'] == best_nc]
+    
+    # Pivot for heatmap
+    pivot_table = slice_df.pivot(index='MC', columns='KC', values='Duration')
+
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(pivot_table, annot=True, fmt=".4f", cmap="YlGnBu_r")
+    plt.title(f"Matrix Multiplication Performance (Duration in s)\n$MC$ vs $KC$ (fixed $NC={int(best_nc)}$)")
+    plt.xlabel("$KC$")
+    plt.ylabel("$MC$")
+    plt.savefig('optimization_heatmap.png')
+    
+    # 3. Trends across all NC values (Boxplot)
+    plt.clf()
+    sns.boxplot(x='NC', y='Duration', data=df)
+    plt.title("Duration Distribution by $NC$")
+    plt.xlabel("$NC$ Value")
+    plt.ylabel("Duration (s)")
+    plt.savefig('nc_distribution.png')
 
 # ---------------------------------------------------------- #
 # ----------- FINAL PLOTS ---------------------------------- #
@@ -228,4 +265,4 @@ def mpi_vs_openmp_vs_opencl_vs_simd():
 # module load Python/3.11.3-GCCcore-12.3.0
 
 if __name__ == "__main__":
-    code_carbon_plot()
+    visualize_tuning_results("csv/simd_param_bench.csv")

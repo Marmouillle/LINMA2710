@@ -79,7 +79,7 @@ Matrix Matrix::operator*(const Matrix &other) const
 
     int newcols = other.cols;
     Matrix result(rows, newcols);
-    int block = 32;
+    int block = 64;
     //#pragma omp parallel
     //{
     //    #pragma omp single
