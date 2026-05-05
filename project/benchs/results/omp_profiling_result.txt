@@ -1,0 +1,121 @@
+Max number of threads available: 16
+Testing matrix multiplication with size: 64x64 and 1 threads
+Big multiplication test duration: 8.283e-05 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 128x128 and 1 threads
+Big multiplication test duration: 0.000611333 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 256x256 and 1 threads
+Big multiplication test duration: 0.00481619 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 512x512 and 1 threads
+Big multiplication test duration: 0.0384013 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 1024x1024 and 1 threads
+Big multiplication test duration: 0.306534 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 2048x2048 and 1 threads
+Big multiplication test duration: 2.51486 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 4096x4096 and 1 threads
+Big multiplication test duration: 29.3239 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 8192x8192 and 1 threads
+Big multiplication test duration: 237.597 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 64x64 and 2 threads
+Big multiplication test duration: 0.000105439 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 128x128 and 2 threads
+Big multiplication test duration: 0.00030023 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 256x256 and 2 threads
+Big multiplication test duration: 0.00240707 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 512x512 and 2 threads
+Big multiplication test duration: 0.019869 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 1024x1024 and 2 threads
+Big multiplication test duration: 0.175527 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 2048x2048 and 2 threads
+Big multiplication test duration: 1.30374 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 4096x4096 and 2 threads
+Big multiplication test duration: 15.578 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 8192x8192 and 2 threads
+Big multiplication test duration: 127.114 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 64x64 and 4 threads
+Big multiplication test duration: 0.000108025 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 128x128 and 4 threads
+Big multiplication test duration: 0.000453238 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 256x256 and 4 threads
+Big multiplication test duration: 0.00125692 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 512x512 and 4 threads
+Big multiplication test duration: 0.0101727 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 1024x1024 and 4 threads
+Big multiplication test duration: 0.0910526 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 2048x2048 and 4 threads
+Big multiplication test duration: 0.660128 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 4096x4096 and 4 threads
+Big multiplication test duration: 7.81871 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 8192x8192 and 4 threads
+Big multiplication test duration: 63.5885 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 64x64 and 8 threads
+Big multiplication test duration: 0.000114529 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 128x128 and 8 threads
+Big multiplication test duration: 0.0003518 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 256x256 and 8 threads
+Big multiplication test duration: 0.000822165 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 512x512 and 8 threads
+Big multiplication test duration: 0.00522952 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 1024x1024 and 8 threads
+Big multiplication test duration: 0.0445632 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 2048x2048 and 8 threads
+Big multiplication test duration: 0.330501 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 4096x4096 and 8 threads
+Big multiplication test duration: 4.12572 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 8192x8192 and 8 threads
+Big multiplication test duration: 33.1506 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 64x64 and 16 threads
+Big multiplication test duration: 0.0029775 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 128x128 and 16 threads
+Big multiplication test duration: 0.000361787 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 256x256 and 16 threads
+Big multiplication test duration: 0.000641394 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 512x512 and 16 threads
+Big multiplication test duration: 0.00273988 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 1024x1024 and 16 threads
+Big multiplication test duration: 0.0227171 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 2048x2048 and 16 threads
+Big multiplication test duration: 0.169479 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 4096x4096 and 16 threads
+Big multiplication test duration: 2.26931 seconds (avg over 5 runs)
+----------------------------------------
+Testing matrix multiplication with size: 8192x8192 and 16 threads
+Big multiplication test duration: 17.0865 seconds (avg over 5 runs)
+----------------------------------------

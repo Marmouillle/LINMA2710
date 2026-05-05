@@ -49,6 +49,9 @@ basic_bench: benchs/basic_bench.cpp $(SRC_DIR)/matrix.cpp include/matrix.hpp
 simd_bench: benchs/simd_bench.cpp $(SRC_DIR)/matrix_opti.cpp include/matrix.hpp
 	$(CXX) $(CVFLAGS) $(INCLUDE) -o simd_bench benchs/simd_bench.cpp $(SRC_DIR)/matrix_opti.cpp
 
+simd_param_bench: benchs/simd_param_bench.cpp $(SRC_DIR)/matrix_opti.cpp include/matrix_opti.hpp
+	$(CXX) $(CVFLAGS) $(INCLUDE) -o simd_param_bench benchs/simd_param_bench.cpp $(SRC_DIR)/matrix_opti.cpp
+
 mpi_bench: benchs/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp include/distributed_matrix.hpp include/matrix.hpp
 	$(MPICXX) $(CXXFLAGS) $(INCLUDE) -o mpi_bench benchs/mpi_bench.cpp $(SRC_DIR)/distributed_matrix.cpp $(SRC_DIR)/matrix.cpp
 

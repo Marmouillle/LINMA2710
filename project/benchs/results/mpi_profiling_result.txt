@@ -1,0 +1,2063 @@
+Running with 1 processes...
+Max number of processes available: 1
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.10553 ms
+  Communication (Allreduce)        : 0.026601 ms
+  Comm / (Comp + Comm) overhead    : 20.1323 %
+  Rank 0: comp=0.10553 ms  comm=0.026601 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.101966 ms
+  Communication (Allreduce)        : 0.001463 ms
+  Comm / (Comp + Comm) overhead    : 1.4145 %
+  Rank 0: comp=0.101966 ms  comm=0.001463 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.104439 ms
+  Communication (Allreduce)        : 0.001152 ms
+  Comm / (Comp + Comm) overhead    : 1.091 %
+  Rank 0: comp=0.104439 ms  comm=0.001152 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.095315 ms
+  Communication (Allreduce)        : 0.001332 ms
+  Comm / (Comp + Comm) overhead    : 1.37821 %
+  Rank 0: comp=0.095315 ms  comm=0.001332 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.095886 ms
+  Communication (Allreduce)        : 0.005539 ms
+  Comm / (Comp + Comm) overhead    : 5.46118 %
+  Rank 0: comp=0.095886 ms  comm=0.005539 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000286713 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.748511 ms
+  Communication (Allreduce)        : 0.004026 ms
+  Comm / (Comp + Comm) overhead    : 0.53499 %
+  Rank 0: comp=0.748511 ms  comm=0.004026 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.729082 ms
+  Communication (Allreduce)        : 0.004567 ms
+  Comm / (Comp + Comm) overhead    : 0.622505 %
+  Rank 0: comp=0.729082 ms  comm=0.004567 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.802664 ms
+  Communication (Allreduce)        : 0.02651 ms
+  Comm / (Comp + Comm) overhead    : 3.19716 %
+  Rank 0: comp=0.802664 ms  comm=0.02651 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.751246 ms
+  Communication (Allreduce)        : 0.004366 ms
+  Comm / (Comp + Comm) overhead    : 0.57781 %
+  Rank 0: comp=0.751246 ms  comm=0.004366 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.730202 ms
+  Communication (Allreduce)        : 0.004198 ms
+  Comm / (Comp + Comm) overhead    : 0.571623 %
+  Rank 0: comp=0.730202 ms  comm=0.004198 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000930861 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 5.52355 ms
+  Communication (Allreduce)        : 0.018939 ms
+  Comm / (Comp + Comm) overhead    : 0.341706 %
+  Rank 0: comp=5.52355 ms  comm=0.018939 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 5.43575 ms
+  Communication (Allreduce)        : 0.01924 ms
+  Comm / (Comp + Comm) overhead    : 0.352704 %
+  Rank 0: comp=5.43575 ms  comm=0.01924 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 5.42906 ms
+  Communication (Allreduce)        : 0.018958 ms
+  Comm / (Comp + Comm) overhead    : 0.34798 %
+  Rank 0: comp=5.42906 ms  comm=0.018958 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 5.41852 ms
+  Communication (Allreduce)        : 0.018819 ms
+  Comm / (Comp + Comm) overhead    : 0.346107 %
+  Rank 0: comp=5.41852 ms  comm=0.018819 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 5.4357 ms
+  Communication (Allreduce)        : 0.018588 ms
+  Comm / (Comp + Comm) overhead    : 0.340796 %
+  Rank 0: comp=5.4357 ms  comm=0.018588 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00576924 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 42.2916 ms
+  Communication (Allreduce)        : 0.076597 ms
+  Comm / (Comp + Comm) overhead    : 0.180789 %
+  Rank 0: comp=42.2916 ms  comm=0.076597 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 42.2576 ms
+  Communication (Allreduce)        : 0.076647 ms
+  Comm / (Comp + Comm) overhead    : 0.181052 %
+  Rank 0: comp=42.2576 ms  comm=0.076647 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 42.1332 ms
+  Communication (Allreduce)        : 0.074955 ms
+  Comm / (Comp + Comm) overhead    : 0.177584 %
+  Rank 0: comp=42.1332 ms  comm=0.074955 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 42.2692 ms
+  Communication (Allreduce)        : 0.083117 ms
+  Comm / (Comp + Comm) overhead    : 0.196251 %
+  Rank 0: comp=42.2692 ms  comm=0.083117 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 42.0963 ms
+  Communication (Allreduce)        : 0.078379 ms
+  Comm / (Comp + Comm) overhead    : 0.185844 %
+  Rank 0: comp=42.0963 ms  comm=0.078379 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0434762 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 335.701 ms
+  Communication (Allreduce)        : 0.370785 ms
+  Comm / (Comp + Comm) overhead    : 0.110329 %
+  Rank 0: comp=335.701 ms  comm=0.370785 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 352.957 ms
+  Communication (Allreduce)        : 0.429024 ms
+  Comm / (Comp + Comm) overhead    : 0.121404 %
+  Rank 0: comp=352.957 ms  comm=0.429024 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 350.981 ms
+  Communication (Allreduce)        : 0.348641 ms
+  Comm / (Comp + Comm) overhead    : 0.0992346 %
+  Rank 0: comp=350.981 ms  comm=0.348641 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 352.352 ms
+  Communication (Allreduce)        : 0.35443 ms
+  Comm / (Comp + Comm) overhead    : 0.100489 %
+  Rank 0: comp=352.352 ms  comm=0.35443 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 350.068 ms
+  Communication (Allreduce)        : 0.313958 ms
+  Comm / (Comp + Comm) overhead    : 0.0896045 %
+  Rank 0: comp=350.068 ms  comm=0.313958 ms
+Distributed matrix multiplication average duration over 5 runs: 0.351771 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2584.79 ms
+  Communication (Allreduce)        : 4.79524 ms
+  Comm / (Comp + Comm) overhead    : 0.185174 %
+  Rank 0: comp=2584.79 ms  comm=4.79524 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2577.58 ms
+  Communication (Allreduce)        : 4.86272 ms
+  Comm / (Comp + Comm) overhead    : 0.1883 %
+  Rank 0: comp=2577.58 ms  comm=4.86272 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2580.28 ms
+  Communication (Allreduce)        : 4.62819 ms
+  Comm / (Comp + Comm) overhead    : 0.179046 %
+  Rank 0: comp=2580.28 ms  comm=4.62819 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2580.35 ms
+  Communication (Allreduce)        : 4.73975 ms
+  Comm / (Comp + Comm) overhead    : 0.18335 %
+  Rank 0: comp=2580.35 ms  comm=4.73975 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2583.37 ms
+  Communication (Allreduce)        : 4.64908 ms
+  Comm / (Comp + Comm) overhead    : 0.179638 %
+  Rank 0: comp=2583.37 ms  comm=4.64908 ms
+Distributed matrix multiplication average duration over 5 runs: 2.59938 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 29580.4 ms
+  Communication (Allreduce)        : 20.8698 ms
+  Comm / (Comp + Comm) overhead    : 0.0705031 %
+  Rank 0: comp=29580.4 ms  comm=20.8698 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 29874.1 ms
+  Communication (Allreduce)        : 21.0198 ms
+  Comm / (Comp + Comm) overhead    : 0.070312 %
+  Rank 0: comp=29874.1 ms  comm=21.0198 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 29881.2 ms
+  Communication (Allreduce)        : 20.9539 ms
+  Comm / (Comp + Comm) overhead    : 0.0700747 %
+  Rank 0: comp=29881.2 ms  comm=20.9539 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 29863.3 ms
+  Communication (Allreduce)        : 21.1665 ms
+  Comm / (Comp + Comm) overhead    : 0.0708279 %
+  Rank 0: comp=29863.3 ms  comm=21.1665 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 29864.3 ms
+  Communication (Allreduce)        : 20.9236 ms
+  Comm / (Comp + Comm) overhead    : 0.0700132 %
+  Rank 0: comp=29864.3 ms  comm=20.9236 ms
+Distributed matrix multiplication average duration over 5 runs: 29.8841 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 242260 ms
+  Communication (Allreduce)        : 81.8607 ms
+  Comm / (Comp + Comm) overhead    : 0.033779 %
+  Rank 0: comp=242260 ms  comm=81.8607 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 247993 ms
+  Communication (Allreduce)        : 83.0384 ms
+  Comm / (Comp + Comm) overhead    : 0.0334729 %
+  Rank 0: comp=247993 ms  comm=83.0384 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 241698 ms
+  Communication (Allreduce)        : 82.7693 ms
+  Comm / (Comp + Comm) overhead    : 0.0342332 %
+  Rank 0: comp=241698 ms  comm=82.7693 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 246471 ms
+  Communication (Allreduce)        : 82.6284 ms
+  Comm / (Comp + Comm) overhead    : 0.0335134 %
+  Rank 0: comp=246471 ms  comm=82.6284 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 240248 ms
+  Communication (Allreduce)        : 82.693 ms
+  Comm / (Comp + Comm) overhead    : 0.0344081 %
+  Rank 0: comp=240248 ms  comm=82.693 ms
+Distributed matrix multiplication average duration over 5 runs: 244.009 seconds
+Benchmark completed.
+Benchmark completed succesfully
+Running with 2 processes...
+Max number of processes available: 2
+Max number of processes available: 2
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.060631 ms
+  Communication (Allreduce)        : 0.162868 ms
+  Comm / (Comp + Comm) overhead    : 72.8719 %
+  Rank 0: comp=0.05912 ms  comm=0.162868 ms
+  Rank 1: comp=0.060631 ms  comm=0.448143 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.045039 ms
+  Communication (Allreduce)        : 0.012959 ms
+  Comm / (Comp + Comm) overhead    : 22.3439 %
+  Rank 0: comp=0.045039 ms  comm=0.012959 ms
+  Rank 1: comp=0.044949 ms  comm=0.022955 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.044858 ms
+  Communication (Allreduce)        : 0.027913 ms
+  Comm / (Comp + Comm) overhead    : 38.3573 %
+  Rank 0: comp=0.044858 ms  comm=0.027913 ms
+  Rank 1: comp=0.044748 ms  comm=0.020412 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.044779 ms
+  Communication (Allreduce)        : 0.028694 ms
+  Comm / (Comp + Comm) overhead    : 39.0538 %
+  Rank 0: comp=0.044779 ms  comm=0.028694 ms
+  Rank 1: comp=0.044758 ms  comm=0.019891 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.044948 ms
+  Communication (Allreduce)        : 0.03908 ms
+  Comm / (Comp + Comm) overhead    : 46.5083 %
+  Rank 0: comp=0.044948 ms  comm=0.03908 ms
+  Rank 1: comp=0.044718 ms  comm=0.023896 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000140292 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.380419 ms
+  Communication (Allreduce)        : 0.146293 ms
+  Comm / (Comp + Comm) overhead    : 27.7748 %
+  Rank 0: comp=0.379748 ms  comm=0.146293 ms
+  Rank 1: comp=0.380419 ms  comm=0.149748 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.389464 ms
+  Communication (Allreduce)        : 0.109276 ms
+  Comm / (Comp + Comm) overhead    : 21.9104 %
+  Rank 0: comp=0.389464 ms  comm=0.109276 ms
+  Rank 1: comp=0.369424 ms  comm=0.080943 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.389804 ms
+  Communication (Allreduce)        : 0.160696 ms
+  Comm / (Comp + Comm) overhead    : 29.1909 %
+  Rank 0: comp=0.375191 ms  comm=0.160696 ms
+  Rank 1: comp=0.389804 ms  comm=0.080803 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.371475 ms
+  Communication (Allreduce)        : 0.143589 ms
+  Comm / (Comp + Comm) overhead    : 27.8779 %
+  Rank 0: comp=0.371475 ms  comm=0.143589 ms
+  Rank 1: comp=0.371216 ms  comm=0.0792 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.374191 ms
+  Communication (Allreduce)        : 0.137278 ms
+  Comm / (Comp + Comm) overhead    : 26.8399 %
+  Rank 0: comp=0.374191 ms  comm=0.137278 ms
+  Rank 1: comp=0.371537 ms  comm=0.078691 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000622472 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2.81744 ms
+  Communication (Allreduce)        : 0.665795 ms
+  Comm / (Comp + Comm) overhead    : 19.1143 %
+  Rank 0: comp=2.75885 ms  comm=0.665795 ms
+  Rank 1: comp=2.81744 ms  comm=0.541005 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2.73886 ms
+  Communication (Allreduce)        : 0.402854 ms
+  Comm / (Comp + Comm) overhead    : 12.8227 %
+  Rank 0: comp=2.73004 ms  comm=0.402854 ms
+  Rank 1: comp=2.73886 ms  comm=0.431387 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2.72776 ms
+  Communication (Allreduce)        : 0.395342 ms
+  Comm / (Comp + Comm) overhead    : 12.6587 %
+  Rank 0: comp=2.72747 ms  comm=0.395342 ms
+  Rank 1: comp=2.72776 ms  comm=0.411437 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2.7312 ms
+  Communication (Allreduce)        : 0.397956 ms
+  Comm / (Comp + Comm) overhead    : 12.7177 %
+  Rank 0: comp=2.72662 ms  comm=0.397956 ms
+  Rank 1: comp=2.7312 ms  comm=0.410015 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 2.72137 ms
+  Communication (Allreduce)        : 0.415533 ms
+  Comm / (Comp + Comm) overhead    : 13.2466 %
+  Rank 0: comp=2.72137 ms  comm=0.415533 ms
+  Rank 1: comp=2.71725 ms  comm=0.427831 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00356618 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 20.7415 ms
+  Communication (Allreduce)        : 1.89403 ms
+  Comm / (Comp + Comm) overhead    : 8.36751 %
+  Rank 0: comp=20.7131 ms  comm=1.89403 ms
+  Rank 1: comp=20.7415 ms  comm=1.79151 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 21.0082 ms
+  Communication (Allreduce)        : 1.60388 ms
+  Comm / (Comp + Comm) overhead    : 7.09303 %
+  Rank 0: comp=21.0082 ms  comm=1.60388 ms
+  Rank 1: comp=20.9879 ms  comm=1.65021 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 21.0956 ms
+  Communication (Allreduce)        : 1.64417 ms
+  Comm / (Comp + Comm) overhead    : 7.2304 %
+  Rank 0: comp=21.0956 ms  comm=1.64417 ms
+  Rank 1: comp=21.009 ms  comm=1.80829 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 21.0177 ms
+  Communication (Allreduce)        : 1.62325 ms
+  Comm / (Comp + Comm) overhead    : 7.16954 %
+  Rank 0: comp=21.0177 ms  comm=1.62325 ms
+  Rank 1: comp=20.9792 ms  comm=1.70244 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 21.1176 ms
+  Communication (Allreduce)        : 1.59879 ms
+  Comm / (Comp + Comm) overhead    : 7.03802 %
+  Rank 0: comp=21.1176 ms  comm=1.59879 ms
+  Rank 1: comp=20.9393 ms  comm=1.83967 ms
+Distributed matrix multiplication average duration over 5 runs: 0.024212 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 163.228 ms
+  Communication (Allreduce)        : 4.15522 ms
+  Comm / (Comp + Comm) overhead    : 2.48246 %
+  Rank 0: comp=163.228 ms  comm=4.15522 ms
+  Rank 1: comp=162.816 ms  comm=4.61367 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 166.233 ms
+  Communication (Allreduce)        : 4.79942 ms
+  Comm / (Comp + Comm) overhead    : 2.80615 %
+  Rank 0: comp=166.233 ms  comm=4.79942 ms
+  Rank 1: comp=165.433 ms  comm=5.53231 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 166.354 ms
+  Communication (Allreduce)        : 4.80282 ms
+  Comm / (Comp + Comm) overhead    : 2.8061 %
+  Rank 0: comp=166.354 ms  comm=4.80282 ms
+  Rank 1: comp=165.445 ms  comm=5.78945 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 166.125 ms
+  Communication (Allreduce)        : 4.86553 ms
+  Comm / (Comp + Comm) overhead    : 2.8455 %
+  Rank 0: comp=166.125 ms  comm=4.86553 ms
+  Rank 1: comp=165.361 ms  comm=5.19908 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 166.29 ms
+  Communication (Allreduce)        : 4.78943 ms
+  Comm / (Comp + Comm) overhead    : 2.79953 %
+  Rank 0: comp=166.29 ms  comm=4.78943 ms
+  Rank 1: comp=165.456 ms  comm=5.35193 ms
+Distributed matrix multiplication average duration over 5 runs: 0.17395 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1302.29 ms
+  Communication (Allreduce)        : 16.0169 ms
+  Comm / (Comp + Comm) overhead    : 1.21496 %
+  Rank 0: comp=1302.29 ms  comm=16.0169 ms
+  Rank 1: comp=1296.96 ms  comm=19.5201 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1309.33 ms
+  Communication (Allreduce)        : 15.9115 ms
+  Comm / (Comp + Comm) overhead    : 1.20065 %
+  Rank 0: comp=1309.33 ms  comm=15.9115 ms
+  Rank 1: comp=1288 ms  comm=36.9788 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1299.19 ms
+  Communication (Allreduce)        : 15.8064 ms
+  Comm / (Comp + Comm) overhead    : 1.20202 %
+  Rank 0: comp=1299.19 ms  comm=15.8064 ms
+  Rank 1: comp=1291.63 ms  comm=22.9972 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1309.27 ms
+  Communication (Allreduce)        : 16.4692 ms
+  Comm / (Comp + Comm) overhead    : 1.24226 %
+  Rank 0: comp=1309.27 ms  comm=16.4692 ms
+  Rank 1: comp=1288.95 ms  comm=37.226 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1302.76 ms
+  Communication (Allreduce)        : 16.2557 ms
+  Comm / (Comp + Comm) overhead    : 1.23241 %
+  Rank 0: comp=1302.76 ms  comm=16.2557 ms
+  Rank 1: comp=1292.18 ms  comm=26.7944 ms
+Distributed matrix multiplication average duration over 5 runs: 1.33328 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 14680.5 ms
+  Communication (Allreduce)        : 141.849 ms
+  Comm / (Comp + Comm) overhead    : 0.956994 %
+  Rank 0: comp=14598.2 ms  comm=141.849 ms
+  Rank 1: comp=14680.5 ms  comm=61.4507 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 14586.1 ms
+  Communication (Allreduce)        : 61.1004 ms
+  Comm / (Comp + Comm) overhead    : 0.417148 %
+  Rank 0: comp=14586.1 ms  comm=61.1004 ms
+  Rank 1: comp=14404.8 ms  comm=244.459 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 14690.4 ms
+  Communication (Allreduce)        : 157.031 ms
+  Comm / (Comp + Comm) overhead    : 1.05762 %
+  Rank 0: comp=14593 ms  comm=157.031 ms
+  Rank 1: comp=14690.4 ms  comm=61.2744 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 14677.7 ms
+  Communication (Allreduce)        : 144.348 ms
+  Comm / (Comp + Comm) overhead    : 0.973873 %
+  Rank 0: comp=14598.5 ms  comm=144.348 ms
+  Rank 1: comp=14677.7 ms  comm=61.4589 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 14675.8 ms
+  Communication (Allreduce)        : 140.734 ms
+  Comm / (Comp + Comm) overhead    : 0.949844 %
+  Rank 0: comp=14595.3 ms  comm=140.734 ms
+  Rank 1: comp=14675.8 ms  comm=61.1659 ms
+Distributed matrix multiplication average duration over 5 runs: 14.7765 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 120671 ms
+  Communication (Allreduce)        : 1581.1 ms
+  Comm / (Comp + Comm) overhead    : 1.29331 %
+  Rank 0: comp=119312 ms  comm=1581.1 ms
+  Rank 1: comp=120671 ms  comm=240.78 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 119090 ms
+  Communication (Allreduce)        : 289.115 ms
+  Comm / (Comp + Comm) overhead    : 0.242183 %
+  Rank 0: comp=119012 ms  comm=289.115 ms
+  Rank 1: comp=119090 ms  comm=240.896 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 119037 ms
+  Communication (Allreduce)        : 239.94 ms
+  Comm / (Comp + Comm) overhead    : 0.201162 %
+  Rank 0: comp=119037 ms  comm=239.94 ms
+  Rank 1: comp=119018 ms  comm=256.812 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 120419 ms
+  Communication (Allreduce)        : 571.275 ms
+  Comm / (Comp + Comm) overhead    : 0.472168 %
+  Rank 0: comp=120090 ms  comm=571.275 ms
+  Rank 1: comp=120419 ms  comm=240.776 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 119557 ms
+  Communication (Allreduce)        : 1270.86 ms
+  Comm / (Comp + Comm) overhead    : 1.05179 %
+  Rank 0: comp=118532 ms  comm=1270.86 ms
+  Rank 1: comp=119557 ms  comm=241.189 ms
+Distributed matrix multiplication average duration over 5 runs: 120.188 seconds
+Benchmark completed.
+Benchmark completed succesfully
+Running with 4 processes...
+Max number of processes available: 4
+Max number of processes available: 4
+Max number of processes available: 4
+Max number of processes available: 4
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.03931 ms
+  Communication (Allreduce)        : 0.219835 ms
+  Comm / (Comp + Comm) overhead    : 84.8309 %
+  Rank 0: comp=0.03931 ms  comm=0.219835 ms
+  Rank 1: comp=0.036977 ms  comm=0.166485 ms
+  Rank 2: comp=0.038398 ms  comm=0.212444 ms
+  Rank 3: comp=0.037676 ms  comm=0.244133 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.02645 ms
+  Communication (Allreduce)        : 0.038719 ms
+  Comm / (Comp + Comm) overhead    : 59.4132 %
+  Rank 0: comp=0.02645 ms  comm=0.038719 ms
+  Rank 1: comp=0.026371 ms  comm=0.088065 ms
+  Rank 2: comp=0.0263 ms  comm=0.080974 ms
+  Rank 3: comp=0.02632 ms  comm=0.084208 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.02621 ms
+  Communication (Allreduce)        : 0.116778 ms
+  Comm / (Comp + Comm) overhead    : 81.6698 %
+  Rank 0: comp=0.0261 ms  comm=0.116778 ms
+  Rank 1: comp=0.02617 ms  comm=0.132662 ms
+  Rank 2: comp=0.02618 ms  comm=0.121736 ms
+  Rank 3: comp=0.02621 ms  comm=0.129217 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.02631 ms
+  Communication (Allreduce)        : 0.036066 ms
+  Comm / (Comp + Comm) overhead    : 57.8203 %
+  Rank 0: comp=0.026239 ms  comm=0.036066 ms
+  Rank 1: comp=0.02631 ms  comm=0.053821 ms
+  Rank 2: comp=0.02624 ms  comm=0.063506 ms
+  Rank 3: comp=0.026201 ms  comm=0.054192 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.026169 ms
+  Communication (Allreduce)        : 0.034823 ms
+  Comm / (Comp + Comm) overhead    : 57.0944 %
+  Rank 0: comp=0.02607 ms  comm=0.034823 ms
+  Rank 1: comp=0.02613 ms  comm=0.048744 ms
+  Rank 2: comp=0.02609 ms  comm=0.059621 ms
+  Rank 3: comp=0.026169 ms  comm=0.049575 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000159401 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.238804 ms
+  Communication (Allreduce)        : 0.204051 ms
+  Comm / (Comp + Comm) overhead    : 46.0763 %
+  Rank 0: comp=0.238804 ms  comm=0.204051 ms
+  Rank 1: comp=0.227086 ms  comm=0.240526 ms
+  Rank 2: comp=0.229439 ms  comm=0.258834 ms
+  Rank 3: comp=0.232934 ms  comm=0.227697 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.221527 ms
+  Communication (Allreduce)        : 0.125591 ms
+  Comm / (Comp + Comm) overhead    : 36.1811 %
+  Rank 0: comp=0.221527 ms  comm=0.125591 ms
+  Rank 1: comp=0.217752 ms  comm=0.123988 ms
+  Rank 2: comp=0.21712 ms  comm=0.125601 ms
+  Rank 3: comp=0.218232 ms  comm=0.126913 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.22369 ms
+  Communication (Allreduce)        : 0.123118 ms
+  Comm / (Comp + Comm) overhead    : 35.5003 %
+  Rank 0: comp=0.22369 ms  comm=0.123118 ms
+  Rank 1: comp=0.223139 ms  comm=0.138902 ms
+  Rank 2: comp=0.222559 ms  comm=0.137399 ms
+  Rank 3: comp=0.22316 ms  comm=0.139302 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.227306 ms
+  Communication (Allreduce)        : 0.124349 ms
+  Comm / (Comp + Comm) overhead    : 35.3611 %
+  Rank 0: comp=0.219864 ms  comm=0.124349 ms
+  Rank 1: comp=0.227306 ms  comm=0.136368 ms
+  Rank 2: comp=0.226244 ms  comm=0.137519 ms
+  Rank 3: comp=0.220086 ms  comm=0.13812 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.220827 ms
+  Communication (Allreduce)        : 0.125521 ms
+  Comm / (Comp + Comm) overhead    : 36.2413 %
+  Rank 0: comp=0.220827 ms  comm=0.125521 ms
+  Rank 1: comp=0.219394 ms  comm=0.140814 ms
+  Rank 2: comp=0.219845 ms  comm=0.140514 ms
+  Rank 3: comp=0.220637 ms  comm=0.141976 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000445242 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1.52862 ms
+  Communication (Allreduce)        : 0.756682 ms
+  Comm / (Comp + Comm) overhead    : 33.1108 %
+  Rank 0: comp=1.50861 ms  comm=0.756682 ms
+  Rank 1: comp=1.51159 ms  comm=0.76868 ms
+  Rank 2: comp=1.52862 ms  comm=0.830484 ms
+  Rank 3: comp=1.50985 ms  comm=0.770294 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1.49906 ms
+  Communication (Allreduce)        : 0.452419 ms
+  Comm / (Comp + Comm) overhead    : 23.1834 %
+  Rank 0: comp=1.49906 ms  comm=0.452419 ms
+  Rank 1: comp=1.48727 ms  comm=0.468903 ms
+  Rank 2: comp=1.47392 ms  comm=0.49207 ms
+  Rank 3: comp=1.49053 ms  comm=0.473611 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1.51328 ms
+  Communication (Allreduce)        : 0.442754 ms
+  Comm / (Comp + Comm) overhead    : 22.6352 %
+  Rank 0: comp=1.51239 ms  comm=0.442754 ms
+  Rank 1: comp=1.50647 ms  comm=0.467832 ms
+  Rank 2: comp=1.51328 ms  comm=0.468623 ms
+  Rank 3: comp=1.50862 ms  comm=0.473731 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1.49275 ms
+  Communication (Allreduce)        : 0.44714 ms
+  Comm / (Comp + Comm) overhead    : 23.0497 %
+  Rank 0: comp=1.49275 ms  comm=0.44714 ms
+  Rank 1: comp=1.48575 ms  comm=0.468063 ms
+  Rank 2: comp=1.46842 ms  comm=0.492229 ms
+  Rank 3: comp=1.48743 ms  comm=0.472369 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1.4999 ms
+  Communication (Allreduce)        : 0.444247 ms
+  Comm / (Comp + Comm) overhead    : 22.8504 %
+  Rank 0: comp=1.4999 ms  comm=0.444247 ms
+  Rank 1: comp=1.49475 ms  comm=0.463456 ms
+  Rank 2: comp=1.48623 ms  comm=0.471498 ms
+  Rank 3: comp=1.49162 ms  comm=0.471177 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00236479 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 11.1356 ms
+  Communication (Allreduce)        : 2.28422 ms
+  Comm / (Comp + Comm) overhead    : 17.0212 %
+  Rank 0: comp=10.9631 ms  comm=2.28422 ms
+  Rank 1: comp=11.1112 ms  comm=2.12903 ms
+  Rank 2: comp=11.0211 ms  comm=2.12726 ms
+  Rank 3: comp=11.1356 ms  comm=2.06788 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 11.0898 ms
+  Communication (Allreduce)        : 1.78964 ms
+  Comm / (Comp + Comm) overhead    : 13.8953 %
+  Rank 0: comp=10.999 ms  comm=1.78964 ms
+  Rank 1: comp=10.9547 ms  comm=2.02017 ms
+  Rank 2: comp=11.0898 ms  comm=1.73533 ms
+  Rank 3: comp=11.0485 ms  comm=1.79106 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 11.0204 ms
+  Communication (Allreduce)        : 1.83834 ms
+  Comm / (Comp + Comm) overhead    : 14.2964 %
+  Rank 0: comp=11.0095 ms  comm=1.83834 ms
+  Rank 1: comp=10.9366 ms  comm=2.12481 ms
+  Rank 2: comp=11.0204 ms  comm=1.85069 ms
+  Rank 3: comp=10.9734 ms  comm=1.94063 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 11.0871 ms
+  Communication (Allreduce)        : 1.78161 ms
+  Comm / (Comp + Comm) overhead    : 13.8445 %
+  Rank 0: comp=11.0871 ms  comm=1.78161 ms
+  Rank 1: comp=10.9734 ms  comm=2.20631 ms
+  Rank 2: comp=11.0634 ms  comm=1.95901 ms
+  Rank 3: comp=11.0124 ms  comm=2.03368 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 11.601 ms
+  Communication (Allreduce)        : 1.85956 ms
+  Comm / (Comp + Comm) overhead    : 13.8149 %
+  Rank 0: comp=11.1603 ms  comm=1.85956 ms
+  Rank 1: comp=10.9656 ms  comm=2.35747 ms
+  Rank 2: comp=11.601 ms  comm=1.565 ms
+  Rank 3: comp=11.0061 ms  comm=2.17687 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0144276 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 84.273 ms
+  Communication (Allreduce)        : 5.84274 ms
+  Comm / (Comp + Comm) overhead    : 6.4836 %
+  Rank 0: comp=83.0413 ms  comm=5.84274 ms
+  Rank 1: comp=84.1581 ms  comm=6.19665 ms
+  Rank 2: comp=82.4553 ms  comm=6.52087 ms
+  Rank 3: comp=84.273 ms  comm=4.6835 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 85.1063 ms
+  Communication (Allreduce)        : 6.29084 ms
+  Comm / (Comp + Comm) overhead    : 6.88297 %
+  Rank 0: comp=84.5795 ms  comm=6.29084 ms
+  Rank 1: comp=84.7444 ms  comm=6.5606 ms
+  Rank 2: comp=85.1063 ms  comm=5.66102 ms
+  Rank 3: comp=84.6611 ms  comm=6.11281 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 86.0651 ms
+  Communication (Allreduce)        : 5.99111 ms
+  Comm / (Comp + Comm) overhead    : 6.5081 %
+  Rank 0: comp=85.1386 ms  comm=5.99111 ms
+  Rank 1: comp=84.4211 ms  comm=7.63014 ms
+  Rank 2: comp=86.0651 ms  comm=5.36709 ms
+  Rank 3: comp=84.5261 ms  comm=6.90997 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 85.0639 ms
+  Communication (Allreduce)        : 6.23138 ms
+  Comm / (Comp + Comm) overhead    : 6.82552 %
+  Rank 0: comp=84.6607 ms  comm=6.23138 ms
+  Rank 1: comp=84.7462 ms  comm=6.51736 ms
+  Rank 2: comp=85.0639 ms  comm=5.86604 ms
+  Rank 3: comp=84.6979 ms  comm=6.29573 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 85.0184 ms
+  Communication (Allreduce)        : 6.26461 ms
+  Comm / (Comp + Comm) overhead    : 6.86284 %
+  Rank 0: comp=84.6861 ms  comm=6.26461 ms
+  Rank 1: comp=84.6842 ms  comm=6.75946 ms
+  Rank 2: comp=85.0184 ms  comm=5.91057 ms
+  Rank 3: comp=84.7286 ms  comm=6.10738 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0943127 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 684.642 ms
+  Communication (Allreduce)        : 31.4676 ms
+  Comm / (Comp + Comm) overhead    : 4.39425 %
+  Rank 0: comp=671.707 ms  comm=31.4676 ms
+  Rank 1: comp=684.642 ms  comm=24.0853 ms
+  Rank 2: comp=673.104 ms  comm=29.567 ms
+  Rank 3: comp=675.317 ms  comm=26.6668 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 672.289 ms
+  Communication (Allreduce)        : 31.458 ms
+  Comm / (Comp + Comm) overhead    : 4.47007 %
+  Rank 0: comp=667.052 ms  comm=31.458 ms
+  Rank 1: comp=668.566 ms  comm=30.8361 ms
+  Rank 2: comp=672.289 ms  comm=23.0352 ms
+  Rank 3: comp=668.87 ms  comm=25.9278 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 668.215 ms
+  Communication (Allreduce)        : 26.639 ms
+  Comm / (Comp + Comm) overhead    : 3.83375 %
+  Rank 0: comp=668.215 ms  comm=26.639 ms
+  Rank 1: comp=667.361 ms  comm=28.6525 ms
+  Rank 2: comp=662.616 ms  comm=30.2854 ms
+  Rank 3: comp=664.432 ms  comm=27.5093 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 684.001 ms
+  Communication (Allreduce)        : 31.8988 ms
+  Comm / (Comp + Comm) overhead    : 4.45576 %
+  Rank 0: comp=672.705 ms  comm=31.8988 ms
+  Rank 1: comp=659.701 ms  comm=45.1335 ms
+  Rank 2: comp=684.001 ms  comm=19.5787 ms
+  Rank 3: comp=665.549 ms  comm=36.8417 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 673.051 ms
+  Communication (Allreduce)        : 25.5242 ms
+  Comm / (Comp + Comm) overhead    : 3.65376 %
+  Rank 0: comp=672.34 ms  comm=25.5242 ms
+  Rank 1: comp=664.961 ms  comm=33.4998 ms
+  Rank 2: comp=665.942 ms  comm=31.9563 ms
+  Rank 3: comp=673.051 ms  comm=23.9367 ms
+Distributed matrix multiplication average duration over 5 runs: 0.71567 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 7384.75 ms
+  Communication (Allreduce)        : 98.9678 ms
+  Comm / (Comp + Comm) overhead    : 1.32244 %
+  Rank 0: comp=7384.75 ms  comm=98.9678 ms
+  Rank 1: comp=7065.54 ms  comm=434.998 ms
+  Rank 2: comp=7370.75 ms  comm=107.548 ms
+  Rank 3: comp=7120.44 ms  comm=354.481 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 7585.98 ms
+  Communication (Allreduce)        : 84.212 ms
+  Comm / (Comp + Comm) overhead    : 1.09791 %
+  Rank 0: comp=7585.98 ms  comm=84.212 ms
+  Rank 1: comp=7094.97 ms  comm=576.987 ms
+  Rank 2: comp=7512.14 ms  comm=167.547 ms
+  Rank 3: comp=7169.03 ms  comm=508.457 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 7523.77 ms
+  Communication (Allreduce)        : 87.7996 ms
+  Comm / (Comp + Comm) overhead    : 1.1535 %
+  Rank 0: comp=7523.77 ms  comm=87.7996 ms
+  Rank 1: comp=7096.39 ms  comm=516.252 ms
+  Rank 2: comp=7481.67 ms  comm=130.32 ms
+  Rank 3: comp=7127.24 ms  comm=480.062 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 7376.58 ms
+  Communication (Allreduce)        : 83.788 ms
+  Comm / (Comp + Comm) overhead    : 1.12311 %
+  Rank 0: comp=7376.58 ms  comm=83.788 ms
+  Rank 1: comp=6980.48 ms  comm=481.105 ms
+  Rank 2: comp=7363.81 ms  comm=90.877 ms
+  Rank 3: comp=6880.01 ms  comm=579.139 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 7386.55 ms
+  Communication (Allreduce)        : 89.157 ms
+  Comm / (Comp + Comm) overhead    : 1.19262 %
+  Rank 0: comp=7386.55 ms  comm=89.157 ms
+  Rank 1: comp=6979.73 ms  comm=495.28 ms
+  Rank 2: comp=7256.03 ms  comm=218.888 ms
+  Rank 3: comp=7136.82 ms  comm=343.048 ms
+Distributed matrix multiplication average duration over 5 runs: 7.60036 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 62054 ms
+  Communication (Allreduce)        : 352.571 ms
+  Comm / (Comp + Comm) overhead    : 0.564958 %
+  Rank 0: comp=62054 ms  comm=352.571 ms
+  Rank 1: comp=59167.3 ms  comm=3230.75 ms
+  Rank 2: comp=59276.8 ms  comm=3129.98 ms
+  Rank 3: comp=59187.3 ms  comm=3308.42 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 61881.4 ms
+  Communication (Allreduce)        : 353.161 ms
+  Comm / (Comp + Comm) overhead    : 0.567467 %
+  Rank 0: comp=61881.4 ms  comm=353.161 ms
+  Rank 1: comp=59099.8 ms  comm=3124.08 ms
+  Rank 2: comp=59251 ms  comm=2990.67 ms
+  Rank 3: comp=58722.7 ms  comm=3564.85 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 61909 ms
+  Communication (Allreduce)        : 353.386 ms
+  Comm / (Comp + Comm) overhead    : 0.567576 %
+  Rank 0: comp=61909 ms  comm=353.386 ms
+  Rank 1: comp=59114.5 ms  comm=3127.82 ms
+  Rank 2: comp=59289.5 ms  comm=2972.29 ms
+  Rank 3: comp=59155.9 ms  comm=3157.61 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 61889.1 ms
+  Communication (Allreduce)        : 353.061 ms
+  Comm / (Comp + Comm) overhead    : 0.567238 %
+  Rank 0: comp=61889.1 ms  comm=353.061 ms
+  Rank 1: comp=59042.1 ms  comm=3202.23 ms
+  Rank 2: comp=59268.8 ms  comm=2976.29 ms
+  Rank 3: comp=59188.2 ms  comm=3086.69 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 61930.5 ms
+  Communication (Allreduce)        : 353.459 ms
+  Comm / (Comp + Comm) overhead    : 0.567497 %
+  Rank 0: comp=61930.5 ms  comm=353.459 ms
+  Rank 1: comp=59466 ms  comm=2828.38 ms
+  Rank 2: comp=59723.1 ms  comm=2570.53 ms
+  Rank 3: comp=59177.3 ms  comm=3155.85 ms
+Distributed matrix multiplication average duration over 5 runs: 62.5098 seconds
+Benchmark completed.
+Benchmark completed succesfully
+Running with 8 processes...
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+Max number of processes available: 8
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.039771 ms
+  Communication (Allreduce)        : 0.199503 ms
+  Comm / (Comp + Comm) overhead    : 83.3785 %
+  Rank 0: comp=0.03244 ms  comm=0.199503 ms
+  Rank 1: comp=0.029925 ms  comm=0.561936 ms
+  Rank 2: comp=0.032179 ms  comm=0.598911 ms
+  Rank 3: comp=0.031789 ms  comm=0.590618 ms
+  Rank 4: comp=0.032219 ms  comm=0.602697 ms
+  Rank 5: comp=0.029775 ms  comm=0.607555 ms
+  Rank 6: comp=0.030556 ms  comm=0.664021 ms
+  Rank 7: comp=0.039771 ms  comm=0.634025 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.016946 ms
+  Communication (Allreduce)        : 0.034783 ms
+  Comm / (Comp + Comm) overhead    : 67.2408 %
+  Rank 0: comp=0.016685 ms  comm=0.034783 ms
+  Rank 1: comp=0.016676 ms  comm=0.104689 ms
+  Rank 2: comp=0.016695 ms  comm=0.089947 ms
+  Rank 3: comp=0.016535 ms  comm=0.122387 ms
+  Rank 4: comp=0.016795 ms  comm=0.07879 ms
+  Rank 5: comp=0.016946 ms  comm=0.125701 ms
+  Rank 6: comp=0.016875 ms  comm=0.095755 ms
+  Rank 7: comp=0.016625 ms  comm=0.104048 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.016756 ms
+  Communication (Allreduce)        : 0.039821 ms
+  Comm / (Comp + Comm) overhead    : 70.3837 %
+  Rank 0: comp=0.016545 ms  comm=0.039821 ms
+  Rank 1: comp=0.016386 ms  comm=0.075865 ms
+  Rank 2: comp=0.016545 ms  comm=0.073311 ms
+  Rank 3: comp=0.016326 ms  comm=0.075054 ms
+  Rank 4: comp=0.016366 ms  comm=0.062515 ms
+  Rank 5: comp=0.016506 ms  comm=0.070156 ms
+  Rank 6: comp=0.016756 ms  comm=0.062275 ms
+  Rank 7: comp=0.016466 ms  comm=0.066621 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.016484 ms
+  Communication (Allreduce)        : 0.034744 ms
+  Comm / (Comp + Comm) overhead    : 67.8223 %
+  Rank 0: comp=0.016484 ms  comm=0.034744 ms
+  Rank 1: comp=0.016455 ms  comm=0.055725 ms
+  Rank 2: comp=0.016385 ms  comm=0.054933 ms
+  Rank 3: comp=0.016296 ms  comm=0.056395 ms
+  Rank 4: comp=0.016356 ms  comm=0.058819 ms
+  Rank 5: comp=0.016375 ms  comm=0.061213 ms
+  Rank 6: comp=0.016366 ms  comm=0.060502 ms
+  Rank 7: comp=0.016385 ms  comm=0.061844 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.016505 ms
+  Communication (Allreduce)        : 0.048383 ms
+  Comm / (Comp + Comm) overhead    : 74.5639 %
+  Rank 0: comp=0.016505 ms  comm=0.048383 ms
+  Rank 1: comp=0.016375 ms  comm=0.073382 ms
+  Rank 2: comp=0.016454 ms  comm=0.072721 ms
+  Rank 3: comp=0.016335 ms  comm=0.073873 ms
+  Rank 4: comp=0.016395 ms  comm=0.070167 ms
+  Rank 5: comp=0.016436 ms  comm=0.07266 ms
+  Rank 6: comp=0.016385 ms  comm=0.072089 ms
+  Rank 7: comp=0.016395 ms  comm=0.072961 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000144184 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.155927 ms
+  Communication (Allreduce)        : 0.301951 ms
+  Comm / (Comp + Comm) overhead    : 65.9457 %
+  Rank 0: comp=0.155927 ms  comm=0.301951 ms
+  Rank 1: comp=0.151791 ms  comm=0.347269 ms
+  Rank 2: comp=0.151802 ms  comm=0.317052 ms
+  Rank 3: comp=0.153083 ms  comm=0.321869 ms
+  Rank 4: comp=0.154585 ms  comm=0.30812 ms
+  Rank 5: comp=0.152512 ms  comm=0.344014 ms
+  Rank 6: comp=0.151541 ms  comm=0.327429 ms
+  Rank 7: comp=0.152212 ms  comm=0.330984 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.145311 ms
+  Communication (Allreduce)        : 0.19687 ms
+  Comm / (Comp + Comm) overhead    : 57.5339 %
+  Rank 0: comp=0.14505 ms  comm=0.19687 ms
+  Rank 1: comp=0.143158 ms  comm=0.220896 ms
+  Rank 2: comp=0.143618 ms  comm=0.279987 ms
+  Rank 3: comp=0.143319 ms  comm=0.286036 ms
+  Rank 4: comp=0.144209 ms  comm=0.213996 ms
+  Rank 5: comp=0.145311 ms  comm=0.214988 ms
+  Rank 6: comp=0.143789 ms  comm=0.242429 ms
+  Rank 7: comp=0.143118 ms  comm=0.250301 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.146584 ms
+  Communication (Allreduce)        : 0.159122 ms
+  Comm / (Comp + Comm) overhead    : 52.0507 %
+  Rank 0: comp=0.146584 ms  comm=0.159122 ms
+  Rank 1: comp=0.144711 ms  comm=0.233826 ms
+  Rank 2: comp=0.145111 ms  comm=0.179454 ms
+  Rank 3: comp=0.14499 ms  comm=0.181396 ms
+  Rank 4: comp=0.144871 ms  comm=0.212364 ms
+  Rank 5: comp=0.145111 ms  comm=0.238033 ms
+  Rank 6: comp=0.145201 ms  comm=0.219775 ms
+  Rank 7: comp=0.145081 ms  comm=0.221307 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.149868 ms
+  Communication (Allreduce)        : 0.168366 ms
+  Comm / (Comp + Comm) overhead    : 52.9064 %
+  Rank 0: comp=0.145854 ms  comm=0.168366 ms
+  Rank 1: comp=0.148066 ms  comm=0.199813 ms
+  Rank 2: comp=0.145451 ms  comm=0.208347 ms
+  Rank 3: comp=0.148566 ms  comm=0.209809 ms
+  Rank 4: comp=0.145401 ms  comm=0.193494 ms
+  Rank 5: comp=0.149868 ms  comm=0.202709 ms
+  Rank 6: comp=0.148205 ms  comm=0.19062 ms
+  Rank 7: comp=0.145491 ms  comm=0.194256 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.153053 ms
+  Communication (Allreduce)        : 0.165001 ms
+  Comm / (Comp + Comm) overhead    : 51.8783 %
+  Rank 0: comp=0.145892 ms  comm=0.165001 ms
+  Rank 1: comp=0.145241 ms  comm=0.194295 ms
+  Rank 2: comp=0.145191 ms  comm=0.188207 ms
+  Rank 3: comp=0.153053 ms  comm=0.181256 ms
+  Rank 4: comp=0.14474 ms  comm=0.179623 ms
+  Rank 5: comp=0.14475 ms  comm=0.181486 ms
+  Rank 6: comp=0.14442 ms  comm=0.182097 ms
+  Rank 7: comp=0.144971 ms  comm=0.190941 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000453448 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.931088 ms
+  Communication (Allreduce)        : 0.902604 ms
+  Comm / (Comp + Comm) overhead    : 49.2233 %
+  Rank 0: comp=0.915243 ms  comm=0.902604 ms
+  Rank 1: comp=0.905088 ms  comm=0.947684 ms
+  Rank 2: comp=0.922675 ms  comm=0.938068 ms
+  Rank 3: comp=0.909625 ms  comm=0.946932 ms
+  Rank 4: comp=0.931088 ms  comm=0.92605 ms
+  Rank 5: comp=0.903155 ms  comm=0.983588 ms
+  Rank 6: comp=0.910085 ms  comm=0.960133 ms
+  Rank 7: comp=0.926601 ms  comm=0.946561 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.902333 ms
+  Communication (Allreduce)        : 0.603179 ms
+  Comm / (Comp + Comm) overhead    : 40.0647 %
+  Rank 0: comp=0.88721 ms  comm=0.603179 ms
+  Rank 1: comp=0.885909 ms  comm=0.618871 ms
+  Rank 2: comp=0.891346 ms  comm=0.633165 ms
+  Rank 3: comp=0.885117 ms  comm=0.647445 ms
+  Rank 4: comp=0.878828 ms  comm=0.630099 ms
+  Rank 5: comp=0.885729 ms  comm=0.627435 ms
+  Rank 6: comp=0.902333 ms  comm=0.594265 ms
+  Rank 7: comp=0.885549 ms  comm=0.642848 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.901092 ms
+  Communication (Allreduce)        : 0.553992 ms
+  Comm / (Comp + Comm) overhead    : 38.0729 %
+  Rank 0: comp=0.884136 ms  comm=0.553992 ms
+  Rank 1: comp=0.89302 ms  comm=0.566733 ms
+  Rank 2: comp=0.884116 ms  comm=0.601385 ms
+  Rank 3: comp=0.883835 ms  comm=0.602276 ms
+  Rank 4: comp=0.885398 ms  comm=0.589458 ms
+  Rank 5: comp=0.881233 ms  comm=0.595056 ms
+  Rank 6: comp=0.901092 ms  comm=0.58415 ms
+  Rank 7: comp=0.884647 ms  comm=0.599452 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.899509 ms
+  Communication (Allreduce)        : 0.591831 ms
+  Comm / (Comp + Comm) overhead    : 39.6845 %
+  Rank 0: comp=0.884287 ms  comm=0.591831 ms
+  Rank 1: comp=0.881232 ms  comm=0.64394 ms
+  Rank 2: comp=0.885208 ms  comm=0.626343 ms
+  Rank 3: comp=0.884277 ms  comm=0.62462 ms
+  Rank 4: comp=0.885188 ms  comm=0.61769 ms
+  Rank 5: comp=0.884928 ms  comm=0.640526 ms
+  Rank 6: comp=0.899509 ms  comm=0.600915 ms
+  Rank 7: comp=0.884036 ms  comm=0.618211 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.902364 ms
+  Communication (Allreduce)        : 0.579352 ms
+  Comm / (Comp + Comm) overhead    : 39.1001 %
+  Rank 0: comp=0.889054 ms  comm=0.579352 ms
+  Rank 1: comp=0.881421 ms  comm=0.612943 ms
+  Rank 2: comp=0.883215 ms  comm=0.61119 ms
+  Rank 3: comp=0.883846 ms  comm=0.608056 ms
+  Rank 4: comp=0.884587 ms  comm=0.600403 ms
+  Rank 5: comp=0.88076 ms  comm=0.61051 ms
+  Rank 6: comp=0.902364 ms  comm=0.586662 ms
+  Rank 7: comp=0.883794 ms  comm=0.614074 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00190556 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 6.28019 ms
+  Communication (Allreduce)        : 2.93105 ms
+  Comm / (Comp + Comm) overhead    : 31.8204 %
+  Rank 0: comp=6.09348 ms  comm=2.93105 ms
+  Rank 1: comp=6.25852 ms  comm=2.89447 ms
+  Rank 2: comp=6.22977 ms  comm=2.75002 ms
+  Rank 3: comp=6.14304 ms  comm=2.86223 ms
+  Rank 4: comp=6.24918 ms  comm=2.8615 ms
+  Rank 5: comp=6.28019 ms  comm=2.90476 ms
+  Rank 6: comp=6.24602 ms  comm=2.9597 ms
+  Rank 7: comp=6.15306 ms  comm=2.98312 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 6.1882 ms
+  Communication (Allreduce)        : 2.32309 ms
+  Comm / (Comp + Comm) overhead    : 27.2942 %
+  Rank 0: comp=6.1882 ms  comm=2.32309 ms
+  Rank 1: comp=6.15849 ms  comm=2.3676 ms
+  Rank 2: comp=6.10922 ms  comm=2.47873 ms
+  Rank 3: comp=6.0464 ms  comm=2.62988 ms
+  Rank 4: comp=6.04557 ms  comm=2.47734 ms
+  Rank 5: comp=6.09183 ms  comm=2.46555 ms
+  Rank 6: comp=6.04546 ms  comm=2.48689 ms
+  Rank 7: comp=6.03131 ms  comm=2.57806 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 6.23486 ms
+  Communication (Allreduce)        : 2.23355 ms
+  Comm / (Comp + Comm) overhead    : 26.3751 %
+  Rank 0: comp=6.23486 ms  comm=2.23355 ms
+  Rank 1: comp=5.97471 ms  comm=2.52078 ms
+  Rank 2: comp=6.01485 ms  comm=2.50803 ms
+  Rank 3: comp=6.07849 ms  comm=2.48534 ms
+  Rank 4: comp=6.02218 ms  comm=2.51751 ms
+  Rank 5: comp=6.02588 ms  comm=2.47332 ms
+  Rank 6: comp=5.98745 ms  comm=2.52047 ms
+  Rank 7: comp=6.00355 ms  comm=2.52162 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 6.16075 ms
+  Communication (Allreduce)        : 2.31034 ms
+  Comm / (Comp + Comm) overhead    : 27.2732 %
+  Rank 0: comp=6.12059 ms  comm=2.31034 ms
+  Rank 1: comp=5.97878 ms  comm=2.4924 ms
+  Rank 2: comp=6.03436 ms  comm=2.47535 ms
+  Rank 3: comp=6.08154 ms  comm=2.4602 ms
+  Rank 4: comp=6.16075 ms  comm=2.30831 ms
+  Rank 5: comp=6.02571 ms  comm=2.43502 ms
+  Rank 6: comp=6.07938 ms  comm=2.40008 ms
+  Rank 7: comp=6.00838 ms  comm=2.52559 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 6.18591 ms
+  Communication (Allreduce)        : 2.24493 ms
+  Comm / (Comp + Comm) overhead    : 26.6276 %
+  Rank 0: comp=6.18591 ms  comm=2.24493 ms
+  Rank 1: comp=5.98487 ms  comm=2.47375 ms
+  Rank 2: comp=6.01043 ms  comm=2.49124 ms
+  Rank 3: comp=6.0719 ms  comm=2.4603 ms
+  Rank 4: comp=5.98223 ms  comm=2.52956 ms
+  Rank 5: comp=6.02802 ms  comm=2.4521 ms
+  Rank 6: comp=6.02397 ms  comm=2.41708 ms
+  Rank 7: comp=6.00645 ms  comm=2.48974 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0100477 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 44.3615 ms
+  Communication (Allreduce)        : 8.94582 ms
+  Comm / (Comp + Comm) overhead    : 16.7816 %
+  Rank 0: comp=44.0354 ms  comm=8.94582 ms
+  Rank 1: comp=43.753 ms  comm=8.86143 ms
+  Rank 2: comp=44.3615 ms  comm=8.4831 ms
+  Rank 3: comp=43.6618 ms  comm=9.77882 ms
+  Rank 4: comp=43.2571 ms  comm=9.82907 ms
+  Rank 5: comp=44.0895 ms  comm=8.74724 ms
+  Rank 6: comp=42.9057 ms  comm=9.80078 ms
+  Rank 7: comp=44.1807 ms  comm=9.08043 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 44.8526 ms
+  Communication (Allreduce)        : 7.9583 ms
+  Comm / (Comp + Comm) overhead    : 15.0694 %
+  Rank 0: comp=44.8526 ms  comm=7.9583 ms
+  Rank 1: comp=44.1018 ms  comm=8.8009 ms
+  Rank 2: comp=44.5575 ms  comm=8.64553 ms
+  Rank 3: comp=43.1885 ms  comm=10.2472 ms
+  Rank 4: comp=43.4058 ms  comm=9.46094 ms
+  Rank 5: comp=44.2872 ms  comm=8.71963 ms
+  Rank 6: comp=43.556 ms  comm=9.4282 ms
+  Rank 7: comp=44.2473 ms  comm=9.01877 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 44.8791 ms
+  Communication (Allreduce)        : 7.92816 ms
+  Comm / (Comp + Comm) overhead    : 15.0134 %
+  Rank 0: comp=44.8791 ms  comm=7.92816 ms
+  Rank 1: comp=44.2798 ms  comm=8.75779 ms
+  Rank 2: comp=44.1317 ms  comm=9.00536 ms
+  Rank 3: comp=42.498 ms  comm=11.1068 ms
+  Rank 4: comp=43.0592 ms  comm=9.86196 ms
+  Rank 5: comp=44.1026 ms  comm=8.94201 ms
+  Rank 6: comp=43.549 ms  comm=9.52812 ms
+  Rank 7: comp=43.9006 ms  comm=9.38414 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 44.2311 ms
+  Communication (Allreduce)        : 8.2847 ms
+  Comm / (Comp + Comm) overhead    : 15.7756 %
+  Rank 0: comp=44.0568 ms  comm=8.2847 ms
+  Rank 1: comp=44.0927 ms  comm=8.57123 ms
+  Rank 2: comp=44.1586 ms  comm=8.52308 ms
+  Rank 3: comp=42.8149 ms  comm=10.4666 ms
+  Rank 4: comp=43.3212 ms  comm=9.27262 ms
+  Rank 5: comp=44.2311 ms  comm=8.49202 ms
+  Rank 6: comp=43.4555 ms  comm=9.28448 ms
+  Rank 7: comp=44.069 ms  comm=8.9194 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 44.4002 ms
+  Communication (Allreduce)        : 8.51805 ms
+  Comm / (Comp + Comm) overhead    : 16.0966 %
+  Rank 0: comp=43.995 ms  comm=8.51805 ms
+  Rank 1: comp=44.1457 ms  comm=8.76941 ms
+  Rank 2: comp=44.4002 ms  comm=8.62516 ms
+  Rank 3: comp=43.0039 ms  comm=10.3062 ms
+  Rank 4: comp=43.3179 ms  comm=9.28567 ms
+  Rank 5: comp=44.0823 ms  comm=8.65555 ms
+  Rank 6: comp=43.5509 ms  comm=9.25201 ms
+  Rank 7: comp=43.9303 ms  comm=8.92488 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0565998 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 349.946 ms
+  Communication (Allreduce)        : 42.3867 ms
+  Comm / (Comp + Comm) overhead    : 10.8038 %
+  Rank 0: comp=341.259 ms  comm=42.3867 ms
+  Rank 1: comp=349.946 ms  comm=33.2267 ms
+  Rank 2: comp=335.913 ms  comm=47.4333 ms
+  Rank 3: comp=343.076 ms  comm=43.2544 ms
+  Rank 4: comp=347.881 ms  comm=35.7887 ms
+  Rank 5: comp=345.942 ms  comm=36.6699 ms
+  Rank 6: comp=332.877 ms  comm=50.2432 ms
+  Rank 7: comp=339.891 ms  comm=44.5884 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 347.369 ms
+  Communication (Allreduce)        : 35.0524 ms
+  Comm / (Comp + Comm) overhead    : 9.16591 %
+  Rank 0: comp=345.154 ms  comm=35.0524 ms
+  Rank 1: comp=345.979 ms  comm=35.3507 ms
+  Rank 2: comp=336.519 ms  comm=45.688 ms
+  Rank 3: comp=343.027 ms  comm=40.7258 ms
+  Rank 4: comp=347.369 ms  comm=33.7015 ms
+  Rank 5: comp=345.22 ms  comm=36.2265 ms
+  Rank 6: comp=331.571 ms  comm=49.9992 ms
+  Rank 7: comp=340.166 ms  comm=40.6027 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 349.513 ms
+  Communication (Allreduce)        : 35.3872 ms
+  Comm / (Comp + Comm) overhead    : 9.19386 %
+  Rank 0: comp=346.35 ms  comm=35.3872 ms
+  Rank 1: comp=345.852 ms  comm=37.3582 ms
+  Rank 2: comp=339.071 ms  comm=45.9997 ms
+  Rank 3: comp=344.744 ms  comm=40.9566 ms
+  Rank 4: comp=349.513 ms  comm=33.2037 ms
+  Rank 5: comp=347.066 ms  comm=36.9047 ms
+  Rank 6: comp=333.365 ms  comm=49.3821 ms
+  Rank 7: comp=342.057 ms  comm=40.0779 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 347.372 ms
+  Communication (Allreduce)        : 36.6909 ms
+  Comm / (Comp + Comm) overhead    : 9.55334 %
+  Rank 0: comp=343.569 ms  comm=36.6909 ms
+  Rank 1: comp=347.228 ms  comm=34.7 ms
+  Rank 2: comp=336.699 ms  comm=45.8884 ms
+  Rank 3: comp=342.739 ms  comm=40.8439 ms
+  Rank 4: comp=347.372 ms  comm=33.5858 ms
+  Rank 5: comp=345.28 ms  comm=36.8118 ms
+  Rank 6: comp=331.585 ms  comm=49.2802 ms
+  Rank 7: comp=340.428 ms  comm=40.2632 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 349.591 ms
+  Communication (Allreduce)        : 45.6444 ms
+  Comm / (Comp + Comm) overhead    : 11.5487 %
+  Rank 0: comp=338.237 ms  comm=45.6444 ms
+  Rank 1: comp=349.591 ms  comm=35.1882 ms
+  Rank 2: comp=336.25 ms  comm=50.1751 ms
+  Rank 3: comp=343.005 ms  comm=44.5641 ms
+  Rank 4: comp=347.963 ms  comm=34.1476 ms
+  Rank 5: comp=345.425 ms  comm=37.9311 ms
+  Rank 6: comp=336.522 ms  comm=45.8514 ms
+  Rank 7: comp=339.599 ms  comm=42.6084 ms
+Distributed matrix multiplication average duration over 5 runs: 0.399058 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3269.06 ms
+  Communication (Allreduce)        : 433.598 ms
+  Comm / (Comp + Comm) overhead    : 11.7105 %
+  Rank 0: comp=2928.34 ms  comm=433.598 ms
+  Rank 1: comp=2889.99 ms  comm=469.535 ms
+  Rank 2: comp=3040.81 ms  comm=318.773 ms
+  Rank 3: comp=3269.06 ms  comm=99.4536 ms
+  Rank 4: comp=3022.43 ms  comm=341.089 ms
+  Rank 5: comp=3040.48 ms  comm=324.519 ms
+  Rank 6: comp=2814.1 ms  comm=543.734 ms
+  Rank 7: comp=3060.61 ms  comm=305.868 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3715.98 ms
+  Communication (Allreduce)        : 488.786 ms
+  Comm / (Comp + Comm) overhead    : 11.6246 %
+  Rank 0: comp=3344.74 ms  comm=488.786 ms
+  Rank 1: comp=3401.54 ms  comm=434.306 ms
+  Rank 2: comp=3673.5 ms  comm=166.101 ms
+  Rank 3: comp=3696.63 ms  comm=145.237 ms
+  Rank 4: comp=3715.98 ms  comm=120.649 ms
+  Rank 5: comp=3676.18 ms  comm=161.285 ms
+  Rank 6: comp=3329.8 ms  comm=506.872 ms
+  Rank 7: comp=3397.71 ms  comm=439.722 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3495.25 ms
+  Communication (Allreduce)        : 450.124 ms
+  Comm / (Comp + Comm) overhead    : 11.4089 %
+  Rank 0: comp=3164.94 ms  comm=450.124 ms
+  Rank 1: comp=3090 ms  comm=530.572 ms
+  Rank 2: comp=3486.13 ms  comm=138.597 ms
+  Rank 3: comp=3374.16 ms  comm=251.345 ms
+  Rank 4: comp=3495.25 ms  comm=123.22 ms
+  Rank 5: comp=3473.52 ms  comm=146.955 ms
+  Rank 6: comp=3097.36 ms  comm=520.405 ms
+  Rank 7: comp=3459.99 ms  comm=161.881 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3741.78 ms
+  Communication (Allreduce)        : 493.356 ms
+  Comm / (Comp + Comm) overhead    : 11.6491 %
+  Rank 0: comp=3343.49 ms  comm=493.356 ms
+  Rank 1: comp=3382.33 ms  comm=457.357 ms
+  Rank 2: comp=3658.95 ms  comm=186.202 ms
+  Rank 3: comp=3741.78 ms  comm=104.103 ms
+  Rank 4: comp=3710.05 ms  comm=129.268 ms
+  Rank 5: comp=3664.09 ms  comm=176.612 ms
+  Rank 6: comp=3314.56 ms  comm=523.862 ms
+  Rank 7: comp=3389.36 ms  comm=450.067 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3514.71 ms
+  Communication (Allreduce)        : 465.937 ms
+  Comm / (Comp + Comm) overhead    : 11.7051 %
+  Rank 0: comp=3153.47 ms  comm=465.937 ms
+  Rank 1: comp=3097.68 ms  comm=521.932 ms
+  Rank 2: comp=3514.71 ms  comm=106.911 ms
+  Rank 3: comp=3409.15 ms  comm=218.148 ms
+  Rank 4: comp=3488.19 ms  comm=133.645 ms
+  Rank 5: comp=3471.65 ms  comm=150.369 ms
+  Rank 6: comp=3101.75 ms  comm=519.873 ms
+  Rank 7: comp=3454.04 ms  comm=167.391 ms
+Distributed matrix multiplication average duration over 5 runs: 3.71569 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 31033.4 ms
+  Communication (Allreduce)        : 970.034 ms
+  Comm / (Comp + Comm) overhead    : 3.03103 %
+  Rank 0: comp=30544.8 ms  comm=970.034 ms
+  Rank 1: comp=30695 ms  comm=800.444 ms
+  Rank 2: comp=29623.1 ms  comm=1886.18 ms
+  Rank 3: comp=29270.8 ms  comm=2268.36 ms
+  Rank 4: comp=30929.1 ms  comm=592.004 ms
+  Rank 5: comp=29488 ms  comm=2018.63 ms
+  Rank 6: comp=31033.4 ms  comm=467.246 ms
+  Rank 7: comp=30738.4 ms  comm=792.126 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 31207.4 ms
+  Communication (Allreduce)        : 1115.22 ms
+  Comm / (Comp + Comm) overhead    : 3.45028 %
+  Rank 0: comp=30536.7 ms  comm=1115.22 ms
+  Rank 1: comp=30695.9 ms  comm=976.159 ms
+  Rank 2: comp=28404.3 ms  comm=3278.34 ms
+  Rank 3: comp=29273.8 ms  comm=2412.03 ms
+  Rank 4: comp=30922.6 ms  comm=739.432 ms
+  Rank 5: comp=29503.3 ms  comm=2162.46 ms
+  Rank 6: comp=31207.4 ms  comm=455.529 ms
+  Rank 7: comp=30621.9 ms  comm=1052.65 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 31233.3 ms
+  Communication (Allreduce)        : 1153.45 ms
+  Comm / (Comp + Comm) overhead    : 3.56149 %
+  Rank 0: comp=30533.6 ms  comm=1153.45 ms
+  Rank 1: comp=30778.8 ms  comm=912.05 ms
+  Rank 2: comp=29516.7 ms  comm=2185.98 ms
+  Rank 3: comp=29270 ms  comm=2454.47 ms
+  Rank 4: comp=31056.3 ms  comm=634.565 ms
+  Rank 5: comp=29614 ms  comm=2082.97 ms
+  Rank 6: comp=31233.3 ms  comm=458.1 ms
+  Rank 7: comp=30431.2 ms  comm=1253.52 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 31035.1 ms
+  Communication (Allreduce)        : 961.502 ms
+  Comm / (Comp + Comm) overhead    : 3.00501 %
+  Rank 0: comp=30525.4 ms  comm=961.502 ms
+  Rank 1: comp=30705.1 ms  comm=787.762 ms
+  Rank 2: comp=28951.4 ms  comm=2559 ms
+  Rank 3: comp=29240.4 ms  comm=2275.32 ms
+  Rank 4: comp=30897.9 ms  comm=601.074 ms
+  Rank 5: comp=29467.6 ms  comm=2041.12 ms
+  Rank 6: comp=31035.1 ms  comm=468.574 ms
+  Rank 7: comp=30049.1 ms  comm=1465.38 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 31068.6 ms
+  Communication (Allreduce)        : 911.44 ms
+  Comm / (Comp + Comm) overhead    : 2.85002 %
+  Rank 0: comp=30621.1 ms  comm=911.44 ms
+  Rank 1: comp=30726.5 ms  comm=830.325 ms
+  Rank 2: comp=29059.4 ms  comm=2493.98 ms
+  Rank 3: comp=29248.9 ms  comm=2330.75 ms
+  Rank 4: comp=31068.6 ms  comm=472.559 ms
+  Rank 5: comp=29471.1 ms  comm=2088.85 ms
+  Rank 6: comp=31045 ms  comm=499.166 ms
+  Rank 7: comp=30741.5 ms  comm=824.189 ms
+Distributed matrix multiplication average duration over 5 runs: 31.8244 seconds
+Benchmark completed.
+Benchmark completed succesfully
+Running with 16 processes...
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+Max number of processes available: 16
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.05241 ms
+  Communication (Allreduce)        : 0.402193 ms
+  Comm / (Comp + Comm) overhead    : 88.4713 %
+  Rank 0: comp=0.05241 ms  comm=0.402193 ms
+  Rank 1: comp=0.026651 ms  comm=0.599532 ms
+  Rank 2: comp=0.028974 ms  comm=0.433149 ms
+  Rank 3: comp=0.036935 ms  comm=0.438188 ms
+  Rank 4: comp=0.028383 ms  comm=0.607635 ms
+  Rank 5: comp=0.045349 ms  comm=0.429734 ms
+  Rank 6: comp=0.027262 ms  comm=0.435224 ms
+  Rank 7: comp=0.02713 ms  comm=0.483687 ms
+  Rank 8: comp=0.027212 ms  comm=0.566973 ms
+  Rank 9: comp=0.028414 ms  comm=0.416805 ms
+  Rank 10: comp=0.027982 ms  comm=0.481344 ms
+  Rank 11: comp=0.029516 ms  comm=0.632413 ms
+  Rank 12: comp=0.029384 ms  comm=0.494223 ms
+  Rank 13: comp=0.028713 ms  comm=0.257803 ms
+  Rank 14: comp=0.029233 ms  comm=0.488294 ms
+  Rank 15: comp=0.02663 ms  comm=0.206004 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.012368 ms
+  Communication (Allreduce)        : 0.069786 ms
+  Comm / (Comp + Comm) overhead    : 84.9453 %
+  Rank 0: comp=0.012079 ms  comm=0.069786 ms
+  Rank 1: comp=0.012108 ms  comm=0.789993 ms
+  Rank 2: comp=0.011858 ms  comm=0.786488 ms
+  Rank 3: comp=0.011907 ms  comm=0.789433 ms
+  Rank 4: comp=0.01213 ms  comm=0.809423 ms
+  Rank 5: comp=0.011958 ms  comm=0.823995 ms
+  Rank 6: comp=0.01217 ms  comm=0.813788 ms
+  Rank 7: comp=0.012108 ms  comm=0.817205 ms
+  Rank 8: comp=0.012188 ms  comm=0.780158 ms
+  Rank 9: comp=0.012198 ms  comm=0.8469 ms
+  Rank 10: comp=0.012368 ms  comm=0.839548 ms
+  Rank 11: comp=0.012258 ms  comm=0.843284 ms
+  Rank 12: comp=0.012028 ms  comm=0.779067 ms
+  Rank 13: comp=0.012018 ms  comm=0.82713 ms
+  Rank 14: comp=0.012349 ms  comm=0.775952 ms
+  Rank 15: comp=0.012238 ms  comm=0.779447 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.011989 ms
+  Communication (Allreduce)        : 0.036355 ms
+  Comm / (Comp + Comm) overhead    : 75.2006 %
+  Rank 0: comp=0.011858 ms  comm=0.036355 ms
+  Rank 1: comp=0.011719 ms  comm=0.645394 ms
+  Rank 2: comp=0.011688 ms  comm=0.642909 ms
+  Rank 3: comp=0.011749 ms  comm=0.646484 ms
+  Rank 4: comp=0.011737 ms  comm=0.63629 ms
+  Rank 5: comp=0.011727 ms  comm=0.644502 ms
+  Rank 6: comp=0.011777 ms  comm=0.637131 ms
+  Rank 7: comp=0.011828 ms  comm=0.638182 ms
+  Rank 8: comp=0.011828 ms  comm=0.643049 ms
+  Rank 9: comp=0.011708 ms  comm=0.644321 ms
+  Rank 10: comp=0.011708 ms  comm=0.647596 ms
+  Rank 11: comp=0.011819 ms  comm=0.648357 ms
+  Rank 12: comp=0.011658 ms  comm=0.644912 ms
+  Rank 13: comp=0.011648 ms  comm=0.647455 ms
+  Rank 14: comp=0.011708 ms  comm=0.646255 ms
+  Rank 15: comp=0.011989 ms  comm=0.647076 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.011909 ms
+  Communication (Allreduce)        : 0.036265 ms
+  Comm / (Comp + Comm) overhead    : 75.2792 %
+  Rank 0: comp=0.011909 ms  comm=0.036265 ms
+  Rank 1: comp=0.011677 ms  comm=0.745235 ms
+  Rank 2: comp=0.011687 ms  comm=0.743853 ms
+  Rank 3: comp=0.011727 ms  comm=0.745374 ms
+  Rank 4: comp=0.011728 ms  comm=0.751235 ms
+  Rank 5: comp=0.011717 ms  comm=0.752787 ms
+  Rank 6: comp=0.011708 ms  comm=0.752857 ms
+  Rank 7: comp=0.011678 ms  comm=0.753368 ms
+  Rank 8: comp=0.011767 ms  comm=0.744274 ms
+  Rank 9: comp=0.011697 ms  comm=0.747719 ms
+  Rank 10: comp=0.011728 ms  comm=0.746506 ms
+  Rank 11: comp=0.011787 ms  comm=0.746997 ms
+  Rank 12: comp=0.011677 ms  comm=0.745786 ms
+  Rank 13: comp=0.011698 ms  comm=0.747017 ms
+  Rank 14: comp=0.011757 ms  comm=0.747589 ms
+  Rank 15: comp=0.011888 ms  comm=0.748099 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.015563 ms
+  Communication (Allreduce)        : 0.036045 ms
+  Comm / (Comp + Comm) overhead    : 69.8438 %
+  Rank 0: comp=0.015563 ms  comm=0.036045 ms
+  Rank 1: comp=0.011617 ms  comm=0.899539 ms
+  Rank 2: comp=0.011667 ms  comm=0.897356 ms
+  Rank 3: comp=0.011678 ms  comm=0.898498 ms
+  Rank 4: comp=0.011757 ms  comm=0.886771 ms
+  Rank 5: comp=0.011678 ms  comm=0.890486 ms
+  Rank 6: comp=0.011718 ms  comm=0.888223 ms
+  Rank 7: comp=0.011688 ms  comm=0.889444 ms
+  Rank 8: comp=0.011678 ms  comm=0.90012 ms
+  Rank 9: comp=0.011698 ms  comm=0.903796 ms
+  Rank 10: comp=0.011668 ms  comm=0.903205 ms
+  Rank 11: comp=0.011738 ms  comm=0.904366 ms
+  Rank 12: comp=0.011978 ms  comm=0.905889 ms
+  Rank 13: comp=0.011708 ms  comm=0.907762 ms
+  Rank 14: comp=0.011747 ms  comm=0.907321 ms
+  Rank 15: comp=0.011808 ms  comm=0.907812 ms
+Distributed matrix multiplication average duration over 5 runs: 0.000912041 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.140975 ms
+  Communication (Allreduce)        : 0.345817 ms
+  Comm / (Comp + Comm) overhead    : 71.04 %
+  Rank 0: comp=0.11218 ms  comm=0.345817 ms
+  Rank 1: comp=0.114324 ms  comm=1.28811 ms
+  Rank 2: comp=0.112562 ms  comm=1.30126 ms
+  Rank 3: comp=0.129467 ms  comm=1.29031 ms
+  Rank 4: comp=0.11089 ms  comm=1.46188 ms
+  Rank 5: comp=0.140975 ms  comm=1.44271 ms
+  Rank 6: comp=0.120064 ms  comm=1.27457 ms
+  Rank 7: comp=0.113402 ms  comm=1.28711 ms
+  Rank 8: comp=0.117289 ms  comm=1.26548 ms
+  Rank 9: comp=0.128155 ms  comm=1.27392 ms
+  Rank 10: comp=0.123299 ms  comm=1.26383 ms
+  Rank 11: comp=0.115166 ms  comm=1.26803 ms
+  Rank 12: comp=0.112581 ms  comm=1.25755 ms
+  Rank 13: comp=0.114675 ms  comm=1.27131 ms
+  Rank 14: comp=0.113173 ms  comm=1.25873 ms
+  Rank 15: comp=0.116898 ms  comm=1.25615 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.121025 ms
+  Communication (Allreduce)        : 0.188988 ms
+  Comm / (Comp + Comm) overhead    : 60.9613 %
+  Rank 0: comp=0.106171 ms  comm=0.188988 ms
+  Rank 1: comp=0.105911 ms  comm=1.23951 ms
+  Rank 2: comp=0.121025 ms  comm=1.21696 ms
+  Rank 3: comp=0.1054 ms  comm=1.24071 ms
+  Rank 4: comp=0.106852 ms  comm=1.05789 ms
+  Rank 5: comp=0.10521 ms  comm=1.06408 ms
+  Rank 6: comp=0.106442 ms  comm=1.23456 ms
+  Rank 7: comp=0.107934 ms  comm=1.23961 ms
+  Rank 8: comp=0.106852 ms  comm=1.23717 ms
+  Rank 9: comp=0.105831 ms  comm=1.24233 ms
+  Rank 10: comp=0.1054 ms  comm=1.24032 ms
+  Rank 11: comp=0.107754 ms  comm=1.24343 ms
+  Rank 12: comp=0.105801 ms  comm=1.23918 ms
+  Rank 13: comp=0.10569 ms  comm=1.24761 ms
+  Rank 14: comp=0.106732 ms  comm=1.2281 ms
+  Rank 15: comp=0.108374 ms  comm=1.22894 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.110239 ms
+  Communication (Allreduce)        : 0.19632 ms
+  Comm / (Comp + Comm) overhead    : 64.0399 %
+  Rank 0: comp=0.108955 ms  comm=0.19632 ms
+  Rank 1: comp=0.106732 ms  comm=1.07132 ms
+  Rank 2: comp=0.106241 ms  comm=1.0723 ms
+  Rank 3: comp=0.107874 ms  comm=1.07291 ms
+  Rank 4: comp=0.107834 ms  comm=1.07714 ms
+  Rank 5: comp=0.106422 ms  comm=1.08355 ms
+  Rank 6: comp=0.107103 ms  comm=1.08236 ms
+  Rank 7: comp=0.107373 ms  comm=1.08577 ms
+  Rank 8: comp=0.106522 ms  comm=1.0618 ms
+  Rank 9: comp=0.106652 ms  comm=1.06925 ms
+  Rank 10: comp=0.106202 ms  comm=1.06419 ms
+  Rank 11: comp=0.107644 ms  comm=1.06847 ms
+  Rank 12: comp=0.107002 ms  comm=1.06694 ms
+  Rank 13: comp=0.107103 ms  comm=1.07539 ms
+  Rank 14: comp=0.110159 ms  comm=1.07208 ms
+  Rank 15: comp=0.110239 ms  comm=1.07294 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.114444 ms
+  Communication (Allreduce)        : 0.201126 ms
+  Comm / (Comp + Comm) overhead    : 63.7342 %
+  Rank 0: comp=0.108264 ms  comm=0.201126 ms
+  Rank 1: comp=0.106803 ms  comm=1.07358 ms
+  Rank 2: comp=0.106723 ms  comm=1.07564 ms
+  Rank 3: comp=0.112642 ms  comm=1.07186 ms
+  Rank 4: comp=0.107264 ms  comm=1.07202 ms
+  Rank 5: comp=0.11104 ms  comm=1.07269 ms
+  Rank 6: comp=0.106693 ms  comm=1.07293 ms
+  Rank 7: comp=0.114074 ms  comm=1.0662 ms
+  Rank 8: comp=0.106923 ms  comm=1.05574 ms
+  Rank 9: comp=0.113584 ms  comm=1.06174 ms
+  Rank 10: comp=0.106562 ms  comm=1.06807 ms
+  Rank 11: comp=0.114444 ms  comm=1.06155 ms
+  Rank 12: comp=0.106352 ms  comm=1.06456 ms
+  Rank 13: comp=0.106933 ms  comm=1.07093 ms
+  Rank 14: comp=0.106852 ms  comm=1.07405 ms
+  Rank 15: comp=0.106101 ms  comm=1.07672 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.116437 ms
+  Communication (Allreduce)        : 0.179844 ms
+  Comm / (Comp + Comm) overhead    : 60.7005 %
+  Rank 0: comp=0.107725 ms  comm=0.179844 ms
+  Rank 1: comp=0.105922 ms  comm=1.05918 ms
+  Rank 2: comp=0.116437 ms  comm=1.04231 ms
+  Rank 3: comp=0.107393 ms  comm=1.05156 ms
+  Rank 4: comp=0.106151 ms  comm=1.05618 ms
+  Rank 5: comp=0.10424 ms  comm=1.05949 ms
+  Rank 6: comp=0.106692 ms  comm=1.05637 ms
+  Rank 7: comp=0.106532 ms  comm=1.0573 ms
+  Rank 8: comp=0.106442 ms  comm=1.05117 ms
+  Rank 9: comp=0.106232 ms  comm=1.07196 ms
+  Rank 10: comp=0.106413 ms  comm=1.05727 ms
+  Rank 11: comp=0.107493 ms  comm=1.06546 ms
+  Rank 12: comp=0.105951 ms  comm=1.04594 ms
+  Rank 13: comp=0.106853 ms  comm=1.05632 ms
+  Rank 14: comp=0.106722 ms  comm=1.0489 ms
+  Rank 15: comp=0.106693 ms  comm=1.04848 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00130492 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.623941 ms
+  Communication (Allreduce)        : 0.819649 ms
+  Comm / (Comp + Comm) overhead    : 56.7785 %
+  Rank 0: comp=0.600755 ms  comm=0.819649 ms
+  Rank 1: comp=0.605612 ms  comm=1.77933 ms
+  Rank 2: comp=0.608556 ms  comm=1.81097 ms
+  Rank 3: comp=0.622788 ms  comm=1.78544 ms
+  Rank 4: comp=0.598531 ms  comm=1.77712 ms
+  Rank 5: comp=0.614626 ms  comm=1.82521 ms
+  Rank 6: comp=0.606333 ms  comm=1.77415 ms
+  Rank 7: comp=0.603389 ms  comm=1.79403 ms
+  Rank 8: comp=0.621667 ms  comm=1.75136 ms
+  Rank 9: comp=0.623941 ms  comm=1.74899 ms
+  Rank 10: comp=0.605452 ms  comm=1.74769 ms
+  Rank 11: comp=0.613284 ms  comm=1.7397 ms
+  Rank 12: comp=0.614856 ms  comm=1.76353 ms
+  Rank 13: comp=0.598972 ms  comm=1.75631 ms
+  Rank 14: comp=0.621456 ms  comm=1.73264 ms
+  Rank 15: comp=0.616349 ms  comm=1.74469 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.592042 ms
+  Communication (Allreduce)        : 0.635498 ms
+  Comm / (Comp + Comm) overhead    : 51.77 %
+  Rank 0: comp=0.584089 ms  comm=0.635498 ms
+  Rank 1: comp=0.587355 ms  comm=1.51863 ms
+  Rank 2: comp=0.580854 ms  comm=1.51533 ms
+  Rank 3: comp=0.585112 ms  comm=1.50207 ms
+  Rank 4: comp=0.589177 ms  comm=1.50291 ms
+  Rank 5: comp=0.585952 ms  comm=1.52215 ms
+  Rank 6: comp=0.577519 ms  comm=1.52967 ms
+  Rank 7: comp=0.591181 ms  comm=1.52063 ms
+  Rank 8: comp=0.592042 ms  comm=1.52335 ms
+  Rank 9: comp=0.589278 ms  comm=1.53783 ms
+  Rank 10: comp=0.587925 ms  comm=1.5378 ms
+  Rank 11: comp=0.59077 ms  comm=1.53531 ms
+  Rank 12: comp=0.584399 ms  comm=1.52519 ms
+  Rank 13: comp=0.589197 ms  comm=1.53178 ms
+  Rank 14: comp=0.590509 ms  comm=1.52503 ms
+  Rank 15: comp=0.58452 ms  comm=1.53036 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.582305 ms
+  Communication (Allreduce)        : 0.646434 ms
+  Comm / (Comp + Comm) overhead    : 52.6095 %
+  Rank 0: comp=0.576229 ms  comm=0.646434 ms
+  Rank 1: comp=0.578872 ms  comm=1.51912 ms
+  Rank 2: comp=0.574425 ms  comm=1.54763 ms
+  Rank 3: comp=0.580082 ms  comm=1.53996 ms
+  Rank 4: comp=0.579873 ms  comm=1.49827 ms
+  Rank 5: comp=0.576888 ms  comm=1.51136 ms
+  Rank 6: comp=0.570158 ms  comm=1.51547 ms
+  Rank 7: comp=0.581135 ms  comm=1.4901 ms
+  Rank 8: comp=0.580345 ms  comm=1.51992 ms
+  Rank 9: comp=0.580034 ms  comm=1.50581 ms
+  Rank 10: comp=0.577749 ms  comm=1.50987 ms
+  Rank 11: comp=0.582305 ms  comm=1.50719 ms
+  Rank 12: comp=0.5775 ms  comm=1.49822 ms
+  Rank 13: comp=0.581206 ms  comm=1.5087 ms
+  Rank 14: comp=0.580543 ms  comm=1.51426 ms
+  Rank 15: comp=0.575646 ms  comm=1.52383 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.586453 ms
+  Communication (Allreduce)        : 0.639794 ms
+  Comm / (Comp + Comm) overhead    : 52.175 %
+  Rank 0: comp=0.580595 ms  comm=0.639794 ms
+  Rank 1: comp=0.581726 ms  comm=1.51661 ms
+  Rank 2: comp=0.579022 ms  comm=1.52186 ms
+  Rank 3: comp=0.582517 ms  comm=1.5132 ms
+  Rank 4: comp=0.583137 ms  comm=1.51019 ms
+  Rank 5: comp=0.579502 ms  comm=1.51456 ms
+  Rank 6: comp=0.582467 ms  comm=1.53329 ms
+  Rank 7: comp=0.585891 ms  comm=1.52746 ms
+  Rank 8: comp=0.58388 ms  comm=1.49323 ms
+  Rank 9: comp=0.583449 ms  comm=1.49294 ms
+  Rank 10: comp=0.581586 ms  comm=1.51041 ms
+  Rank 11: comp=0.586383 ms  comm=1.50809 ms
+  Rank 12: comp=0.578982 ms  comm=1.5172 ms
+  Rank 13: comp=0.586453 ms  comm=1.5115 ms
+  Rank 14: comp=0.584269 ms  comm=1.5194 ms
+  Rank 15: comp=0.579363 ms  comm=1.52966 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 0.587494 ms
+  Communication (Allreduce)        : 0.647035 ms
+  Comm / (Comp + Comm) overhead    : 52.4115 %
+  Rank 0: comp=0.576519 ms  comm=0.647035 ms
+  Rank 1: comp=0.574625 ms  comm=1.52445 ms
+  Rank 2: comp=0.577739 ms  comm=1.52471 ms
+  Rank 3: comp=0.586384 ms  comm=1.51686 ms
+  Rank 4: comp=0.57806 ms  comm=1.5242 ms
+  Rank 5: comp=0.582838 ms  comm=1.5461 ms
+  Rank 6: comp=0.575757 ms  comm=1.5192 ms
+  Rank 7: comp=0.586312 ms  comm=1.5161 ms
+  Rank 8: comp=0.578631 ms  comm=1.50713 ms
+  Rank 9: comp=0.587494 ms  comm=1.49872 ms
+  Rank 10: comp=0.57747 ms  comm=1.51197 ms
+  Rank 11: comp=0.579443 ms  comm=1.50223 ms
+  Rank 12: comp=0.575686 ms  comm=1.51247 ms
+  Rank 13: comp=0.57796 ms  comm=1.50331 ms
+  Rank 14: comp=0.578692 ms  comm=1.51313 ms
+  Rank 15: comp=0.577109 ms  comm=1.5171 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00246892 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3.99084 ms
+  Communication (Allreduce)        : 3.05366 ms
+  Comm / (Comp + Comm) overhead    : 43.3482 %
+  Rank 0: comp=3.85253 ms  comm=3.05366 ms
+  Rank 1: comp=3.99084 ms  comm=3.93849 ms
+  Rank 2: comp=3.63709 ms  comm=4.18533 ms
+  Rank 3: comp=3.93241 ms  comm=3.84946 ms
+  Rank 4: comp=3.88148 ms  comm=4.01041 ms
+  Rank 5: comp=3.90065 ms  comm=3.99771 ms
+  Rank 6: comp=3.92846 ms  comm=3.93368 ms
+  Rank 7: comp=3.94351 ms  comm=3.95557 ms
+  Rank 8: comp=3.86441 ms  comm=4.03051 ms
+  Rank 9: comp=3.87712 ms  comm=4.01623 ms
+  Rank 10: comp=3.94411 ms  comm=3.94388 ms
+  Rank 11: comp=3.85255 ms  comm=4.00514 ms
+  Rank 12: comp=3.84911 ms  comm=3.98086 ms
+  Rank 13: comp=3.85884 ms  comm=3.9538 ms
+  Rank 14: comp=3.90347 ms  comm=3.8215 ms
+  Rank 15: comp=3.90456 ms  comm=3.71447 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3.84436 ms
+  Communication (Allreduce)        : 2.634 ms
+  Comm / (Comp + Comm) overhead    : 40.6585 %
+  Rank 0: comp=3.74145 ms  comm=2.634 ms
+  Rank 1: comp=3.7966 ms  comm=3.59106 ms
+  Rank 2: comp=3.51193 ms  comm=4.03415 ms
+  Rank 3: comp=3.81884 ms  comm=3.60983 ms
+  Rank 4: comp=3.84436 ms  comm=3.57274 ms
+  Rank 5: comp=3.7163 ms  comm=3.74422 ms
+  Rank 6: comp=3.64079 ms  comm=3.7947 ms
+  Rank 7: comp=3.63171 ms  comm=3.81124 ms
+  Rank 8: comp=3.81626 ms  comm=3.50391 ms
+  Rank 9: comp=3.65645 ms  comm=3.73594 ms
+  Rank 10: comp=3.63483 ms  comm=3.79868 ms
+  Rank 11: comp=3.64303 ms  comm=3.78548 ms
+  Rank 12: comp=3.63841 ms  comm=3.82425 ms
+  Rank 13: comp=3.6499 ms  comm=3.80744 ms
+  Rank 14: comp=3.66793 ms  comm=3.65885 ms
+  Rank 15: comp=3.66847 ms  comm=3.78088 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3.61772 ms
+  Communication (Allreduce)        : 2.61743 ms
+  Comm / (Comp + Comm) overhead    : 41.9786 %
+  Rank 0: comp=3.56701 ms  comm=2.61743 ms
+  Rank 1: comp=3.58113 ms  comm=3.51771 ms
+  Rank 2: comp=3.51214 ms  comm=3.7674 ms
+  Rank 3: comp=3.59703 ms  comm=3.61139 ms
+  Rank 4: comp=3.53492 ms  comm=3.51678 ms
+  Rank 5: comp=3.52201 ms  comm=3.64249 ms
+  Rank 6: comp=3.52548 ms  comm=3.56932 ms
+  Rank 7: comp=3.54263 ms  comm=3.54527 ms
+  Rank 8: comp=3.57415 ms  comm=3.48485 ms
+  Rank 9: comp=3.54182 ms  comm=3.58368 ms
+  Rank 10: comp=3.53833 ms  comm=3.5761 ms
+  Rank 11: comp=3.54136 ms  comm=3.5552 ms
+  Rank 12: comp=3.52151 ms  comm=3.56627 ms
+  Rank 13: comp=3.53649 ms  comm=3.54819 ms
+  Rank 14: comp=3.5473 ms  comm=3.57341 ms
+  Rank 15: comp=3.61772 ms  comm=3.50492 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3.6242 ms
+  Communication (Allreduce)        : 2.58268 ms
+  Comm / (Comp + Comm) overhead    : 41.61 %
+  Rank 0: comp=3.59276 ms  comm=2.58268 ms
+  Rank 1: comp=3.58457 ms  comm=3.4752 ms
+  Rank 2: comp=3.52108 ms  comm=3.67656 ms
+  Rank 3: comp=3.52009 ms  comm=3.62092 ms
+  Rank 4: comp=3.56964 ms  comm=3.4661 ms
+  Rank 5: comp=3.52691 ms  comm=3.55525 ms
+  Rank 6: comp=3.57213 ms  comm=3.50737 ms
+  Rank 7: comp=3.56614 ms  comm=3.52678 ms
+  Rank 8: comp=3.6242 ms  comm=3.40153 ms
+  Rank 9: comp=3.55264 ms  comm=3.56963 ms
+  Rank 10: comp=3.53153 ms  comm=3.6458 ms
+  Rank 11: comp=3.54586 ms  comm=3.6053 ms
+  Rank 12: comp=3.53173 ms  comm=3.62071 ms
+  Rank 13: comp=3.5533 ms  comm=3.57867 ms
+  Rank 14: comp=3.58252 ms  comm=3.53203 ms
+  Rank 15: comp=3.61636 ms  comm=3.50239 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 3.63257 ms
+  Communication (Allreduce)        : 2.61977 ms
+  Comm / (Comp + Comm) overhead    : 41.9006 %
+  Rank 0: comp=3.57703 ms  comm=2.61977 ms
+  Rank 1: comp=3.63257 ms  comm=3.47753 ms
+  Rank 2: comp=3.51198 ms  comm=3.719 ms
+  Rank 3: comp=3.56135 ms  comm=3.6147 ms
+  Rank 4: comp=3.59805 ms  comm=3.4347 ms
+  Rank 5: comp=3.50507 ms  comm=3.71093 ms
+  Rank 6: comp=3.5363 ms  comm=3.59537 ms
+  Rank 7: comp=3.53638 ms  comm=3.59998 ms
+  Rank 8: comp=3.61411 ms  comm=3.47891 ms
+  Rank 9: comp=3.54756 ms  comm=3.60805 ms
+  Rank 10: comp=3.53505 ms  comm=3.58613 ms
+  Rank 11: comp=3.55049 ms  comm=3.54137 ms
+  Rank 12: comp=3.52211 ms  comm=3.58679 ms
+  Rank 13: comp=3.6087 ms  comm=3.46831 ms
+  Rank 14: comp=3.53641 ms  comm=3.60007 ms
+  Rank 15: comp=3.59695 ms  comm=3.55178 ms
+Distributed matrix multiplication average duration over 5 runs: 0.00879633 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 24.3598 ms
+  Communication (Allreduce)        : 12.8698 ms
+  Comm / (Comp + Comm) overhead    : 34.5687 %
+  Rank 0: comp=23.6361 ms  comm=12.8698 ms
+  Rank 1: comp=24.2175 ms  comm=11.3743 ms
+  Rank 2: comp=22.7908 ms  comm=17.8154 ms
+  Rank 3: comp=24.0839 ms  comm=13.7591 ms
+  Rank 4: comp=23.859 ms  comm=11.8489 ms
+  Rank 5: comp=23.6924 ms  comm=13.8269 ms
+  Rank 6: comp=23.4532 ms  comm=13.3721 ms
+  Rank 7: comp=23.5586 ms  comm=13.3466 ms
+  Rank 8: comp=24.3598 ms  comm=11.4768 ms
+  Rank 9: comp=23.5528 ms  comm=12.9588 ms
+  Rank 10: comp=23.6498 ms  comm=12.5063 ms
+  Rank 11: comp=23.5562 ms  comm=12.9603 ms
+  Rank 12: comp=23.5659 ms  comm=12.587 ms
+  Rank 13: comp=23.8079 ms  comm=12.7233 ms
+  Rank 14: comp=24.305 ms  comm=11.1838 ms
+  Rank 15: comp=24.0368 ms  comm=11.4289 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 25.3267 ms
+  Communication (Allreduce)        : 12.0174 ms
+  Comm / (Comp + Comm) overhead    : 32.1802 %
+  Rank 0: comp=23.4817 ms  comm=12.0174 ms
+  Rank 1: comp=24.6696 ms  comm=12.3537 ms
+  Rank 2: comp=23.2263 ms  comm=15.059 ms
+  Rank 3: comp=24.573 ms  comm=13.1451 ms
+  Rank 4: comp=24.4775 ms  comm=11.7878 ms
+  Rank 5: comp=23.8131 ms  comm=13.3921 ms
+  Rank 6: comp=23.864 ms  comm=13.0393 ms
+  Rank 7: comp=24.4267 ms  comm=12.6947 ms
+  Rank 8: comp=24.1323 ms  comm=12.5367 ms
+  Rank 9: comp=23.8095 ms  comm=13.7144 ms
+  Rank 10: comp=23.6132 ms  comm=13.0694 ms
+  Rank 11: comp=24.8134 ms  comm=12.6819 ms
+  Rank 12: comp=24.0513 ms  comm=12.5242 ms
+  Rank 13: comp=23.8037 ms  comm=13.0114 ms
+  Rank 14: comp=25.3267 ms  comm=11.4955 ms
+  Rank 15: comp=24.9082 ms  comm=11.9776 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 25.2609 ms
+  Communication (Allreduce)        : 12.0939 ms
+  Comm / (Comp + Comm) overhead    : 32.3757 %
+  Rank 0: comp=23.4785 ms  comm=12.0939 ms
+  Rank 1: comp=24.4082 ms  comm=12.8809 ms
+  Rank 2: comp=22.946 ms  comm=15.52 ms
+  Rank 3: comp=24.501 ms  comm=13.2048 ms
+  Rank 4: comp=24.2617 ms  comm=11.8251 ms
+  Rank 5: comp=23.836 ms  comm=13.5788 ms
+  Rank 6: comp=24.2538 ms  comm=12.3252 ms
+  Rank 7: comp=23.5738 ms  comm=13.4031 ms
+  Rank 8: comp=23.8543 ms  comm=13.0653 ms
+  Rank 9: comp=23.9368 ms  comm=13.3317 ms
+  Rank 10: comp=23.6349 ms  comm=13.5228 ms
+  Rank 11: comp=24.282 ms  comm=13.0685 ms
+  Rank 12: comp=23.935 ms  comm=13.0217 ms
+  Rank 13: comp=23.8373 ms  comm=13.2914 ms
+  Rank 14: comp=25.2609 ms  comm=11.6671 ms
+  Rank 15: comp=24.8439 ms  comm=12.0591 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 25.4231 ms
+  Communication (Allreduce)        : 12.2515 ms
+  Comm / (Comp + Comm) overhead    : 32.5193 %
+  Rank 0: comp=23.58 ms  comm=12.2515 ms
+  Rank 1: comp=24.4289 ms  comm=12.5709 ms
+  Rank 2: comp=22.6967 ms  comm=15.504 ms
+  Rank 3: comp=24.7871 ms  comm=12.4577 ms
+  Rank 4: comp=24.6437 ms  comm=11.7436 ms
+  Rank 5: comp=24.1418 ms  comm=13.6902 ms
+  Rank 6: comp=23.6646 ms  comm=13.3889 ms
+  Rank 7: comp=24.3633 ms  comm=12.8308 ms
+  Rank 8: comp=23.5064 ms  comm=12.9876 ms
+  Rank 9: comp=23.9608 ms  comm=12.7226 ms
+  Rank 10: comp=23.5567 ms  comm=12.8314 ms
+  Rank 11: comp=24.1094 ms  comm=12.6641 ms
+  Rank 12: comp=23.9804 ms  comm=13.5551 ms
+  Rank 13: comp=24.0522 ms  comm=13.2258 ms
+  Rank 14: comp=25.4231 ms  comm=11.4392 ms
+  Rank 15: comp=24.999 ms  comm=11.7911 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 25.0783 ms
+  Communication (Allreduce)        : 12.2334 ms
+  Comm / (Comp + Comm) overhead    : 32.787 %
+  Rank 0: comp=23.3826 ms  comm=12.2334 ms
+  Rank 1: comp=24.5 ms  comm=12.3022 ms
+  Rank 2: comp=22.869 ms  comm=15.5935 ms
+  Rank 3: comp=24.786 ms  comm=12.8275 ms
+  Rank 4: comp=24.4666 ms  comm=12.0706 ms
+  Rank 5: comp=24.0967 ms  comm=13.2955 ms
+  Rank 6: comp=23.3745 ms  comm=13.6224 ms
+  Rank 7: comp=24.2349 ms  comm=13.1404 ms
+  Rank 8: comp=23.5021 ms  comm=13.2922 ms
+  Rank 9: comp=24.2626 ms  comm=13.0197 ms
+  Rank 10: comp=23.9148 ms  comm=13.5862 ms
+  Rank 11: comp=24.7326 ms  comm=12.6399 ms
+  Rank 12: comp=24.1283 ms  comm=12.7623 ms
+  Rank 13: comp=24.0589 ms  comm=13.0946 ms
+  Rank 14: comp=25.0783 ms  comm=12.1463 ms
+  Rank 15: comp=24.6893 ms  comm=12.4386 ms
+Distributed matrix multiplication average duration over 5 runs: 0.0421279 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 177.854 ms
+  Communication (Allreduce)        : 61.4591 ms
+  Comm / (Comp + Comm) overhead    : 25.6815 %
+  Rank 0: comp=171.599 ms  comm=61.4591 ms
+  Rank 1: comp=174.061 ms  comm=54.2729 ms
+  Rank 2: comp=167.14 ms  comm=83.8763 ms
+  Rank 3: comp=177.854 ms  comm=56.4859 ms
+  Rank 4: comp=172.021 ms  comm=57.3236 ms
+  Rank 5: comp=171.894 ms  comm=64.4978 ms
+  Rank 6: comp=172.819 ms  comm=57.8317 ms
+  Rank 7: comp=170.503 ms  comm=63.6908 ms
+  Rank 8: comp=174.33 ms  comm=54.4877 ms
+  Rank 9: comp=171.715 ms  comm=60.621 ms
+  Rank 10: comp=174.107 ms  comm=55.582 ms
+  Rank 11: comp=171.971 ms  comm=60.3634 ms
+  Rank 12: comp=175.043 ms  comm=55.4395 ms
+  Rank 13: comp=172.687 ms  comm=59.7766 ms
+  Rank 14: comp=176.28 ms  comm=50.8343 ms
+  Rank 15: comp=174.407 ms  comm=55.1165 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 176.969 ms
+  Communication (Allreduce)        : 53.4875 ms
+  Comm / (Comp + Comm) overhead    : 23.2094 %
+  Rank 0: comp=171.365 ms  comm=53.4875 ms
+  Rank 1: comp=173.798 ms  comm=54.0103 ms
+  Rank 2: comp=167.229 ms  comm=69.282 ms
+  Rank 3: comp=176.969 ms  comm=56.01 ms
+  Rank 4: comp=170.054 ms  comm=54.1567 ms
+  Rank 5: comp=171.183 ms  comm=61.1632 ms
+  Rank 6: comp=170.176 ms  comm=54.972 ms
+  Rank 7: comp=168.761 ms  comm=59.7244 ms
+  Rank 8: comp=172.735 ms  comm=54.5314 ms
+  Rank 9: comp=172.509 ms  comm=58.9189 ms
+  Rank 10: comp=173.2 ms  comm=57.3717 ms
+  Rank 11: comp=171.585 ms  comm=60.7628 ms
+  Rank 12: comp=171.84 ms  comm=56.8741 ms
+  Rank 13: comp=171.298 ms  comm=60.752 ms
+  Rank 14: comp=173.334 ms  comm=55.1232 ms
+  Rank 15: comp=172.159 ms  comm=57.843 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 178.887 ms
+  Communication (Allreduce)        : 55.3745 ms
+  Comm / (Comp + Comm) overhead    : 23.6379 %
+  Rank 0: comp=170.927 ms  comm=55.3745 ms
+  Rank 1: comp=173.207 ms  comm=54.5478 ms
+  Rank 2: comp=167.311 ms  comm=69.6574 ms
+  Rank 3: comp=178.887 ms  comm=54.3938 ms
+  Rank 4: comp=171.098 ms  comm=55.6525 ms
+  Rank 5: comp=171.34 ms  comm=61.5903 ms
+  Rank 6: comp=171.803 ms  comm=56.4673 ms
+  Rank 7: comp=168.549 ms  comm=61.2312 ms
+  Rank 8: comp=173.826 ms  comm=55.315 ms
+  Rank 9: comp=171.546 ms  comm=61.5571 ms
+  Rank 10: comp=172.917 ms  comm=57.054 ms
+  Rank 11: comp=171.431 ms  comm=61.0475 ms
+  Rank 12: comp=172.661 ms  comm=56.0213 ms
+  Rank 13: comp=170.993 ms  comm=59.9304 ms
+  Rank 14: comp=173.142 ms  comm=54.5916 ms
+  Rank 15: comp=173.759 ms  comm=55.0515 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 176.678 ms
+  Communication (Allreduce)        : 56.1971 ms
+  Comm / (Comp + Comm) overhead    : 24.1318 %
+  Rank 0: comp=169.623 ms  comm=56.1971 ms
+  Rank 1: comp=172.189 ms  comm=53.3223 ms
+  Rank 2: comp=167.275 ms  comm=69.3907 ms
+  Rank 3: comp=176.678 ms  comm=56.2576 ms
+  Rank 4: comp=170.631 ms  comm=56.8342 ms
+  Rank 5: comp=171.628 ms  comm=62.1339 ms
+  Rank 6: comp=170.59 ms  comm=58.293 ms
+  Rank 7: comp=169.925 ms  comm=60.48 ms
+  Rank 8: comp=173.22 ms  comm=56.0086 ms
+  Rank 9: comp=171.464 ms  comm=60.1368 ms
+  Rank 10: comp=172.561 ms  comm=57.0863 ms
+  Rank 11: comp=171.74 ms  comm=60.1647 ms
+  Rank 12: comp=172.658 ms  comm=57.5853 ms
+  Rank 13: comp=171.589 ms  comm=61.2267 ms
+  Rank 14: comp=174.008 ms  comm=55.6618 ms
+  Rank 15: comp=174.159 ms  comm=56.8503 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 181.625 ms
+  Communication (Allreduce)        : 53.5449 ms
+  Comm / (Comp + Comm) overhead    : 22.7685 %
+  Rank 0: comp=172.631 ms  comm=53.5449 ms
+  Rank 1: comp=172.155 ms  comm=53.7383 ms
+  Rank 2: comp=167.261 ms  comm=67.4399 ms
+  Rank 3: comp=181.625 ms  comm=51.9479 ms
+  Rank 4: comp=171.514 ms  comm=56.0383 ms
+  Rank 5: comp=172.484 ms  comm=57.8956 ms
+  Rank 6: comp=171.242 ms  comm=56.8542 ms
+  Rank 7: comp=169.263 ms  comm=58.0205 ms
+  Rank 8: comp=173.811 ms  comm=55.1526 ms
+  Rank 9: comp=172.217 ms  comm=58.9441 ms
+  Rank 10: comp=172.392 ms  comm=55.1422 ms
+  Rank 11: comp=170.374 ms  comm=60.962 ms
+  Rank 12: comp=173.387 ms  comm=56.7844 ms
+  Rank 13: comp=170.929 ms  comm=59.4151 ms
+  Rank 14: comp=174.357 ms  comm=54.629 ms
+  Rank 15: comp=173.141 ms  comm=55.1391 ms
+Distributed matrix multiplication average duration over 5 runs: 0.252991 seconds
+Benchmark completed.
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1388.55 ms
+  Communication (Allreduce)        : 253.916 ms
+  Comm / (Comp + Comm) overhead    : 15.4595 %
+  Rank 0: comp=1354.01 ms  comm=253.916 ms
+  Rank 1: comp=1356.63 ms  comm=232.117 ms
+  Rank 2: comp=1305.49 ms  comm=368.983 ms
+  Rank 3: comp=1388.55 ms  comm=215.731 ms
+  Rank 4: comp=1345.61 ms  comm=234.256 ms
+  Rank 5: comp=1349.37 ms  comm=255.433 ms
+  Rank 6: comp=1356.23 ms  comm=227.655 ms
+  Rank 7: comp=1333.93 ms  comm=265.19 ms
+  Rank 8: comp=1366.04 ms  comm=220.136 ms
+  Rank 9: comp=1348.83 ms  comm=253.053 ms
+  Rank 10: comp=1356.55 ms  comm=229.339 ms
+  Rank 11: comp=1339.17 ms  comm=260.173 ms
+  Rank 12: comp=1360.23 ms  comm=221.784 ms
+  Rank 13: comp=1350.61 ms  comm=243.962 ms
+  Rank 14: comp=1361.06 ms  comm=207.267 ms
+  Rank 15: comp=1362.16 ms  comm=208.169 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1719.92 ms
+  Communication (Allreduce)        : 391.196 ms
+  Comm / (Comp + Comm) overhead    : 18.5303 %
+  Rank 0: comp=1490.73 ms  comm=391.196 ms
+  Rank 1: comp=1567.6 ms  comm=311.654 ms
+  Rank 2: comp=1430.72 ms  comm=481.47 ms
+  Rank 3: comp=1534.63 ms  comm=362.656 ms
+  Rank 4: comp=1577.11 ms  comm=304.572 ms
+  Rank 5: comp=1539.31 ms  comm=366.002 ms
+  Rank 6: comp=1719.92 ms  comm=163.278 ms
+  Rank 7: comp=1460.92 ms  comm=433.553 ms
+  Rank 8: comp=1635.35 ms  comm=241.642 ms
+  Rank 9: comp=1498.08 ms  comm=391.546 ms
+  Rank 10: comp=1599.6 ms  comm=283.718 ms
+  Rank 11: comp=1466.67 ms  comm=420.741 ms
+  Rank 12: comp=1577.14 ms  comm=312.738 ms
+  Rank 13: comp=1535.26 ms  comm=358.825 ms
+  Rank 14: comp=1700.47 ms  comm=188.933 ms
+  Rank 15: comp=1613.92 ms  comm=276.052 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1637.55 ms
+  Communication (Allreduce)        : 217.496 ms
+  Comm / (Comp + Comm) overhead    : 11.7246 %
+  Rank 0: comp=1601.24 ms  comm=217.496 ms
+  Rank 1: comp=1461.88 ms  comm=355.336 ms
+  Rank 2: comp=1527.86 ms  comm=318.297 ms
+  Rank 3: comp=1515.05 ms  comm=315.464 ms
+  Rank 4: comp=1579.76 ms  comm=231.133 ms
+  Rank 5: comp=1471.76 ms  comm=356.594 ms
+  Rank 6: comp=1621.33 ms  comm=192.573 ms
+  Rank 7: comp=1445.37 ms  comm=379.582 ms
+  Rank 8: comp=1637.55 ms  comm=186.751 ms
+  Rank 9: comp=1569.54 ms  comm=267.891 ms
+  Rank 10: comp=1563.51 ms  comm=263.445 ms
+  Rank 11: comp=1471.48 ms  comm=362.8 ms
+  Rank 12: comp=1572.99 ms  comm=249.517 ms
+  Rank 13: comp=1544.59 ms  comm=282.818 ms
+  Rank 14: comp=1607.28 ms  comm=217.115 ms
+  Rank 15: comp=1607.56 ms  comm=217.033 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1735.76 ms
+  Communication (Allreduce)        : 377.807 ms
+  Comm / (Comp + Comm) overhead    : 17.8754 %
+  Rank 0: comp=1492.7 ms  comm=377.807 ms
+  Rank 1: comp=1574.82 ms  comm=292.604 ms
+  Rank 2: comp=1427.37 ms  comm=476.672 ms
+  Rank 3: comp=1531.54 ms  comm=358.821 ms
+  Rank 4: comp=1577.08 ms  comm=294.513 ms
+  Rank 5: comp=1547.14 ms  comm=345.159 ms
+  Rank 6: comp=1735.76 ms  comm=138.756 ms
+  Rank 7: comp=1447.45 ms  comm=437.452 ms
+  Rank 8: comp=1638.14 ms  comm=224.583 ms
+  Rank 9: comp=1503.91 ms  comm=367.141 ms
+  Rank 10: comp=1595.38 ms  comm=268.19 ms
+  Rank 11: comp=1468.25 ms  comm=404.827 ms
+  Rank 12: comp=1571.46 ms  comm=303.212 ms
+  Rank 13: comp=1544.03 ms  comm=334.632 ms
+  Rank 14: comp=1615.7 ms  comm=258.583 ms
+  Rank 15: comp=1602.82 ms  comm=272.025 ms
+=== multiplyTransposed profiling ===
+  Computation  (max across ranks) : 1626.4 ms
+  Communication (Allreduce)        : 218.687 ms
+  Comm / (Comp + Comm) overhead    : 11.8524 %
+  Rank 0: comp=1595.05 ms  comm=218.687 ms
+  Rank 1: comp=1461.15 ms  comm=349.618 ms
+  Rank 2: comp=1535.72 ms  comm=309.57 ms
+  Rank 3: comp=1524.69 ms  comm=306.839 ms
+  Rank 4: comp=1580.37 ms  comm=233.491 ms
+  Rank 5: comp=1461.66 ms  comm=369.169 ms
+  Rank 6: comp=1626.4 ms  comm=189.553 ms
+  Rank 7: comp=1447.47 ms  comm=374.784 ms
+  Rank 8: comp=1622.29 ms  comm=192.214 ms
+  Rank 9: comp=1565.07 ms  comm=258.906 ms
+  Rank 10: comp=1566.59 ms  comm=250.572 ms
+  Rank 11: comp=1471.91 ms  comm=353.071 ms
+  Rank 12: comp=1576.51 ms  comm=242.155 ms
+  Rank 13: comp=1544.83 ms  comm=282.577 ms
+  Rank 14: comp=1600.81 ms  comm=217.692 ms
+  Rank 15: comp=1610.68 ms  comm=209.348 ms
+Distributed matrix multiplication average duration over 5 runs: 1.88943 seconds
+Benchmark completed.
+slurmstepd: error: Detected 1 oom_kill event in StepId=853516.4. Some of the step tasks have been OOM Killed.
+srun: error: ly-w216: task 3: Out Of Memory
+slurmstepd: error:  mpi/pmix_v5: _errhandler: ly-w216 [0]: pmixp_client_v2.c:211: Error handler invoked: status = -61, source = [slurm.pmix.853516.4:3]
+slurmstepd: error: *** STEP 853516.4 ON ly-w216 CANCELLED AT 2026-05-05T20:40:11 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
