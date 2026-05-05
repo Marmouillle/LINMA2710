@@ -15,11 +15,11 @@ int main(int argc, char *argv[])
     bench_file << "Size,Duration,MC,KC,NC\n";
 
     int size = 2048;
-    for (int mc : {8, 16, 32, 48, 64, 80})
+    for (int mc : {16, 32, 48, 64, 80, 96, 128})
     {
-        for (int kc : {48, 64, 128, 192, 256, 384, 512})
+        for (int kc : {48, 64, 96, 128, 192})
         {
-            for (int nc : {64, 128, 256, 512, 1024, 2048})
+            for (int nc : {64, 128, 256, 512, 1024})
             {
                 Matrix A(size, size, mc, kc, nc);
                 Matrix B(size, size, mc, kc, nc);
