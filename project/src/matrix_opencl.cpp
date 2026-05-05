@@ -4,6 +4,7 @@
 #include <string>
 #include <stdexcept>
 #include <memory>
+#include <fstream>
 
 int MatrixCL::TILE = 64; // default tile size
 int MatrixCL::SUB_TILE = 8; // default subtile size (TILE/SUB_TILE must be an integer)
@@ -441,6 +442,19 @@ MatrixCL MatrixCL::operator*(float scalar) const
     return result;
 }
 
+void save_profiling_info(const std::string& filename, size_t N, size_t flops, double exec_time, double comm_time, int TILE_SIZE, int SUB_TILE_SIZE) {
+    std::fstream bench_file;
+    bench_file.open(filename, std::ios::out | std::ios::app);
+    if (bench_file.is_open()) {
+        if (bench_file.tellp() == 0) {
+            bench_file << "Size,Duration,Comm_time, Gflops,TILE_SIZE,SUB_TILE_SIZE\n";
+        }
+        bench_file << N << "," << exec_time << "," << comm_time << "," << (flops / (exec_time * 1e6)) << "," << TILE_SIZE << "," << SUB_TILE_SIZE << "\n";
+        bench_file.close();
+    } else {
+        std::cerr << "Failed to open profiling output file." << std::endl;
+    }
+}
 MatrixCL MatrixCL::operator*(const MatrixCL& other) const
 {
     int C_rows = this->rows_;
@@ -477,21 +491,21 @@ MatrixCL MatrixCL::operator*(const MatrixCL& other) const
     double submit_to_start  = (time_start - time_submit) * 1e-6;
     double exec_time        = (time_end   - time_start) * 1e-6;
     double total_time       = (time_end   - time_queued) * 1e-6;
+    double comm_time = total_time - exec_time;
 
     std::cout << "=== OpenCL Profiling ===\n";
     std::cout << "Kernel execution time   : " << exec_time << " ms\n";
     std::cout << "Queue -> Submit latency : " << queued_to_submit << " ms\n";
     std::cout << "Submit -> Start latency : " << submit_to_start << " ms\n";
     std::cout << "Total event time        : " << total_time << " ms\n";
-
+    std::cout << "Communication time      : " << comm_time << " ms\n";
     size_t N = padded_rows_;
     size_t M = other.padded_cols_;
     size_t K = padded_cols_;
-
     double flops = 2.0 * N * M * K;
-    double gflops = flops / (exec_time * 1e6);
+    std::fstream bench_file;
+    save_profiling_info("opencl_bench.csv", N, flops, total_time, comm_time, MatrixCL::TILE, MatrixCL::SUB_TILE);
 
-    std::cout << "Performance            : " << gflops << " GFLOPS\n";
     return result;
 }
 

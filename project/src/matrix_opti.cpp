@@ -1,3 +1,7 @@
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC optimize("fast-math")
+#pragma GCC target("avx2,fma")
+
 #include <cstring>
 #include <algorithm>
 #include <thread>
@@ -124,15 +128,13 @@ Matrix Matrix::operator*(const Matrix& other) const
 
     const double* A = this->data.data();
     const double* B = other.data.data();
-    double*       C = result.data.data();
+    double* C = result.data.data();
 
     std::memset(C, 0, (size_t)n * n2 * sizeof(double));
 
     for (int kk = 0; kk < cols; kk += KC) {
-        // Only use if matrix not divisible by KC
-        //const int kkend = std::min(kk + KC, cols);
-        //// klen=KC except for the last block which may be smaller
-        //const int klen  = kkend - kk;
+        const int kkend = std::min(kk + KC, cols);
+        const int klen  = kkend - kk;
 
         for (int ii = 0; ii < n; ii += MC) {
             const int iiend = std::min(ii + MC, n);
@@ -146,13 +148,10 @@ Matrix Matrix::operator*(const Matrix& other) const
                         const int jr = std::min(8, jjend - j);
 
                         if (ir == 8 && jr == 8) {
-                            micro_8x8(A + i*cols + kk,
-                                      B + kk*n2 + j,
-                                      C + i*n2  + j,
-                                      KC, n2); // replace KC with klen if we handle non-divisible cases
+                            micro_8x8(A + i*cols + kk, B + kk*n2 + j, C + i*n2  + j, klen, n2);
                         } else {
                             for (int i2 = i;  i2 < i  + ir;   i2++)
-                            for (int k  = kk; k  < kk + KC;     k++) // replace kk+KC with kkend if we handle non-divisible cases
+                            for (int k  = kk; k  < kkend;     k++)
                             for (int j2 = j;  j2 < j  + jr;   j2++)
                                 C[i2*n2 + j2] += A[i2*cols + k] * B[k*n2 + j2];
                         }

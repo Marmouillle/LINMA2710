@@ -195,14 +195,18 @@ DistributedMatrix multiply(const Matrix& left, const DistributedMatrix& right){
     return result;
 }
 
-Matrix DistributedMatrix::multiplyTransposed(const DistributedMatrix& other) const
+Matrix DistributedMatrix::multiplyTransposed(const DistributedMatrix& other, double *times) const
 {
     std::vector<double> sendBuffer(other.globalRows * globalRows);
     if (globalCols != other.globalCols){
         throw std::invalid_argument("Matrix dimensions must match for operation");
     }
 
-    // Each process computes its local contribution to the result (localData * other.localData^T)
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    double t_comp_start = MPI_Wtime();
+
     Matrix subresult = localData * other.localData.transpose();
     for (int i = 0; i < globalRows; i++){
         for (int j = 0; j < other.globalRows; j++){
@@ -210,15 +214,54 @@ Matrix DistributedMatrix::multiplyTransposed(const DistributedMatrix& other) con
         }
     }
 
-    //Assemble data
+    double t_comp_end = MPI_Wtime();
+
+    double t_comm_start = MPI_Wtime();
+
     std::vector<double> recvBuffer(globalRows * other.globalRows);
     MPI_Allreduce(sendBuffer.data(), recvBuffer.data(), globalRows * other.globalRows, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+
+    double t_comm_end = MPI_Wtime();
+
+    //Reconstruct matrix vector
     Matrix result(globalRows, other.globalRows);
     for (int i = 0; i < globalRows; i++){
         for (int j = 0; j < other.globalRows; j++){
             result.set(i, j, recvBuffer[i * other.globalRows + j]);
         }
     }
+
+    // Gather timings 
+    double local_comp = t_comp_end - t_comp_start;
+    double local_comm = t_comm_end - t_comm_start;
+
+    int nprocs;
+    MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+
+    if (rank == 0 && times != nullptr) {
+        std::vector<double> all_comp(nprocs), all_comm(nprocs);
+
+        MPI_Gather(&local_comp, 1, MPI_DOUBLE, all_comp.data(), 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+        MPI_Gather(&local_comm, 1, MPI_DOUBLE, all_comm.data(), 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+        // times[0] = max computation time across all ranks (critical path)
+        // times[1] = communication time (same for all ranks, Allreduce is collective)
+        times[0] = *std::max_element(all_comp.begin(), all_comp.end());
+        times[1] = local_comm;
+
+        std::cout << "=== multiplyTransposed profiling ===" << std::endl;
+        std::cout << "  Computation  (max across ranks) : " << times[0] * 1e3 << " ms" << std::endl;
+        std::cout << "  Communication (Allreduce)        : " << times[1] * 1e3 << " ms" << std::endl;
+        std::cout << "  Comm / (Comp + Comm) overhead    : "
+                  << 100.0 * times[1] / (times[0] + times[1]) << " %" << std::endl;
+        for (int r = 0; r < nprocs; r++)
+            std::cout << "  Rank " << r << ": comp=" << all_comp[r]*1e3
+                      << " ms  comm=" << all_comm[r]*1e3 << " ms" << std::endl;
+    } else {
+        MPI_Gather(&local_comp, 1, MPI_DOUBLE, nullptr, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+        MPI_Gather(&local_comm, 1, MPI_DOUBLE, nullptr, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    }
+
     return result;
 }
 

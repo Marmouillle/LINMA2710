@@ -23,24 +23,42 @@ bool matricesEqual(const Matrix &a, const Matrix &b, double epsilon = 1e-6)
 
 void testBigMultiplication()
 {
-    int size = 2048; 
+    int size = 1000;
     Matrix A(size, size);
     Matrix B(size, size);
-    A.fill(0.0);
-    B.fill(0.0);
-    for (int i = 0; i < A.numRows(); ++i){
-        A.set(i, i, 1.0); // Identity matrix
-        B.set(i, i, 2.0); // Diagonal matrix with 2s on the diagonal
-    }
-            
-    Matrix C = A * B;
-    for (int i = 0; i < C.numRows(); ++i)
-        for (int j = 0; j < C.numCols(); ++j){
-            if (i == j)
-                assert(approxEqual(C.get(i, j), 2.0));
-            else
-                 assert(approxEqual(C.get(i, j), 0.0));
+
+    // Fill with deterministic pseudo-random values
+    for (int i = 0; i < size; ++i)
+        for (int j = 0; j < size; ++j) {
+            A.set(i, j, std::sin(i * 0.1 + j * 0.3));
+            B.set(i, j, std::cos(i * 0.2 + j * 0.1));
         }
+
+    Matrix C = A * B;
+
+    // Verify a sample of elements against a naive scalar computation
+    // (checking every element would be O(n^3) — too slow for a unit test)
+    auto naive_element = [&](int row, int col) {
+        double sum = 0.0;
+        for (int k = 0; k < size; ++k)
+            sum += A.get(row, k) * B.get(k, col);
+        return sum;
+    };
+
+    // Check diagonal
+    for (int i = 0; i < size; ++i)
+        assert(approxEqual(C.get(i, i), naive_element(i, i)));
+
+    // Check a strided sample across the full matrix
+    for (int i = 0; i < size; i += 97)
+        for (int j = 0; j < size; j += 97)
+            assert(approxEqual(C.get(i, j), naive_element(i, j)));
+
+    // Check known hard positions (corners and center)
+    for (auto [r, c] : std::vector<std::pair<int,int>>{
+            {0, 0}, {0, size-1}, {size-1, 0}, {size-1, size-1}, {size/2, size/2}})
+        assert(approxEqual(C.get(r, c), naive_element(r, c)));
+
     std::cout << "testBigMultiplication passed." << std::endl;
 }
 int main()

@@ -24,7 +24,7 @@ struct KernelCache {
 
     bool initialized = false;
 
-    void compileKernels(cl::Context context, const std::vector<cl::Device>& devices, int TILE, int SUB_TILE);
+    void compileKernels(cl::Context context, const std::vector<cl::Device>& devices);
 };
 
 // --- MatrixCL Class ---
@@ -32,14 +32,10 @@ class MatrixCL
 {
 private:
     int rows_, cols_;
-    int padded_rows_, padded_cols_; // dimensions after padding to TILE size
     cl::Context context_;
     cl::CommandQueue queue_;
     cl::Buffer buffer_;
 
-    // Parameters sizes should be defined globally to ensure consistency across all kernels and avoid hardcoding in multiple places.
-    static int TILE; // Tile size for matrix multiplication (e.g., 64)
-    static int SUB_TILE; // Sub-tile size for work-group division (e.g., 4)
     static std::shared_ptr<KernelCache> kernels_;
 
     size_t buffer_size_bytes() const;
@@ -47,7 +43,7 @@ private:
 public:
     // --- Initialization ---
     // Must be called once *after* OpenCL context/device setup, *before* any MatrixCL ops.
-    static void initializeKernels(cl::Context context, const std::vector<cl::Device>& devices, int TILE_SIZE, int SUB_TILE_SIZE);
+    static void initializeKernels(cl::Context context, const std::vector<cl::Device>& devices);
 
     // --- Constructors & Assignment ---
     MatrixCL(int rows, int cols, cl::Context context, cl::CommandQueue queue, const std::vector<float>* initial_data = nullptr);

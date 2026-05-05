@@ -91,18 +91,8 @@ int main(int argc, char** argv) {
     {
         max_size = std::stoi(argv[3]);
     }
-    std::fstream bench_file;
-    bench_file.open("opencl_param_bench.csv", std::ios::out | std::ios::app);
-    if (bench_file.is_open()) {
-        if (bench_file.tellp() == 0) {
-            bench_file << "Size,Duration,TILE_SIZE,SUB_TILE_SIZE\n";
-        }
-    } else {
-        std::cerr << "Failed to open benchmark output file." << std::endl;
-        return 1;
-    }
     
-    for (int size = max_size; size <= max_size; size *= 2)
+    for (int size = 64; size <= max_size; size *= 2)
     {
         printf("Running benchmark for size %d...\n", size);
         MatrixCL A(size, size, context, queue);
@@ -110,25 +100,11 @@ int main(int argc, char** argv) {
         A.fill(1.0);
         B.fill(2.0);
         
-        double total_duration = 0.0;
         // average over multiple runs to reduce noise
         for (int run = 0; run < 5; ++run) {
-            auto start_time = std::chrono::high_resolution_clock::now();
             MatrixCL C = A*B;
-            auto end_time = std::chrono::high_resolution_clock::now();
-        
-            std::chrono::duration<double> duration = end_time - start_time;
-            total_duration += duration.count();
         }
-        total_duration /= 5.0; // average duration
-        
-        std::cout << "Distributed matrix multiplication average duration: " << total_duration << " seconds" << std::endl;
-        bench_file << size << "," << total_duration << "," << TILE_SIZE << "," << SUB_TILE_SIZE << "\n";
-        std::cout << "Benchmark of size" << size << "completed." << std::endl;
-        }
-    if (bench_file.is_open())
-        bench_file.close();
-    std::cout << "Benchmark completed succesfully" << std::endl;
+    }
 
     return 0;
 }

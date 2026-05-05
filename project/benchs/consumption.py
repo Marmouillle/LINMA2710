@@ -24,5 +24,5 @@ def run_benchmark(binary_path, project_name, output_file):
 
 if __name__ == "__main__":
     # Run your two benchmarks
-    run_benchmark("./opencl_basic_bench", "OpenCL basic Kernel", "opencl_basic.csv")
-    run_benchmark("./opencl_bench", "OpenCL complex Kernel", "opencl_complex.csv")
+    run_benchmark("./execs/opencl_basic_bench", "OpenCL basic Kernel", "opencl_basic.csv")
+    run_benchmark("./execs/opencl_bench", "OpenCL complex Kernel", "opencl_complex.csv")

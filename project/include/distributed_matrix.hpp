@@ -72,7 +72,8 @@ public:
 
     // DistributedMatrix * DistributedMatrix^T (returns a regular Matrix)
     //      Assumes the same column partitioning for both inputs
-    Matrix multiplyTransposed(const DistributedMatrix& other) const;
+    // Optional buffer containing total time and actual multiplication time for benchmarking purposes
+    Matrix multiplyTransposed(const DistributedMatrix& other, double *times = nullptr) const;
 
     // Sum of all elements across all processes
     double sum() const;
